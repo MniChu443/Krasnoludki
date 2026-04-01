@@ -5,30 +5,31 @@ materialy = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
 
 class Sasiad:
 
-    def __init__(self, node: NodeGrafu, odleglosc: float):
-        self.node = node
+    def __init__(self, sasiad: int, odleglosc: float):
+        self.indeks_sasiada = sasiad
         self.odleglosc = odleglosc
 
     def __str__(self):
-        return f"{self.node} w odleglosci {self.odleglosc}"
+        return f"Wierzcholek nr {self.indeks_sasiada} w odleglosci {self.odleglosc}"
 
 
 class NodeGrafu:
 
-    def __init__(self, x: float, y: float):
+    def __init__(self, indeks: int, x: float, y: float):
+        self.indeks = indeks
         self.x = x
         self.y = y
         self.sasiedzi: List[Sasiad] = []
 
-    def dodaj_sasiada(self, sasiad: NodeGrafu, odleglosc: float):
+    def dodaj_sasiada(self, sasiad: int, odleglosc: float):
         nowy_sasiad = Sasiad(sasiad, odleglosc)
         self.sasiedzi.append(nowy_sasiad)
 
 
 class Domek(NodeGrafu):
 
-    def __init__(self, x: float, y: float, preferencja: str):
-        super().__init__(x, y)
+    def __init__(self, indeks: int, x: float, y: float, preferencja: str):
+        super().__init__(indeks, x, y)
         self.preferencja = preferencja
 
     def __str__(self):
@@ -37,8 +38,8 @@ class Domek(NodeGrafu):
 
 class Kopalnia(NodeGrafu):
 
-    def __init__(self, x: int, y: int, pojemnosc: int, zloze: str):
-        super().__init__(x, y)
+    def __init__(self, indeks: int, x: int, y: int, pojemnosc: int, zloze: str):
+        super().__init__(indeks, x, y)
         self.pojemnosc = pojemnosc
         self.zloze = zloze
 
