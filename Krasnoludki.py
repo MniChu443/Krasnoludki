@@ -1,7 +1,8 @@
-import KlasyGrafu as Graf
+import Generator
+import ObslugaJSON
 
-nowy_d = Graf.Domek(2, 5, "ZLOTO")
-nowy_k = Graf.Kopalnia(5, 10, 2, "WEGIEL")
 
-print(nowy_d)
-print(nowy_k)
+graf = Generator.wygeneruj_graf()
+ObslugaJSON.zapisz_do_pliku(graf, "DaneTestowe/test.json")
+graf = ObslugaJSON.wczytaj_plik("DaneTestowe/test.json")
+print(graf)
