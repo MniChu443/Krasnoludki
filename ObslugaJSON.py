@@ -30,10 +30,19 @@ def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia, indeks: int):
     return slownik
 
 
-def zapisz_do_pliku(lista_wierzcholkow: List[Graf.Domek | Graf.Kopalnia], nazwa: str):
+def zapisz_do_pliku(lista_wierzcholkow: List[Graf.Domek | Graf.Kopalnia], sciezka: str):
 
     lista = []
     for indeks, wierzcholek in enumerate(lista_wierzcholkow):
         lista.append(node_na_dict(wierzcholek, indeks))
 
-    print(json.dumps(lista))
+    with open(sciezka, "w") as plik:
+        plik.write(json.dumps(lista, ensure_ascii=False, indent=4))
+
+
+def wczytaj_plik(sciezka: str):
+
+    with open(sciezka, "r") as plik:
+        lista = json.loads(plik.read())
+
+    return lista
