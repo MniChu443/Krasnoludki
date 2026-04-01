@@ -1,3 +1,5 @@
+materialy = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
+
 class NodeGrafu:
 
     def __init__(self, x, y):
