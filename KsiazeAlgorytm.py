@@ -45,9 +45,3 @@ def oblicz_dlugosc_trasy(hull):
         p2 = hull[(i + 1) % len(hull)].pozycja
         perimeter += math.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2)
     return perimeter
-
-
-# Przykład użycia:
-# mines = [(0, 3), (2, 2), (1, 1), (2, 1), (3, 0), (0, 0), (3, 3)]
-# route = najkrotsza_droga_ksiecia(mines)
-# distance = oblicz_dlugosc_trasy(route)
