@@ -20,8 +20,7 @@ class NodeGrafu:
 
     def __init__(self, indeks: int, x: float, y: float):
         self.indeks = indeks
-        self.x = x
-        self.y = y
+        self.pozycja = (x, y)
         self.sasiedzi: List[Sasiad] = []
 
     def dodaj_sasiada(self, sasiad: int, odleglosc: float):
@@ -36,7 +35,7 @@ class Domek(NodeGrafu):
         self.preferencja = preferencja
 
     def __str__(self):
-        return f"Domek w pozycji ({self.x}, {self.y}), krasnal lubi {self.preferencja}"
+        return f"Domek w pozycji ({self.pozycja[0]}, {self.pozycja[1]}), krasnal lubi {self.preferencja}"
 
     def __repr__(self):
         return str(self)
@@ -50,7 +49,7 @@ class Kopalnia(NodeGrafu):
         self.zloze = zloze
 
     def __str__(self):
-        return f"Kopalnia w pozycji ({self.x}, {self.y}), pelna {self.zloze} ma {self.pojemnosc} miejsc"
+        return f"Kopalnia w pozycji ({self.pozycja[0]}, {self.pozycja[1]}), pelna {self.zloze} ma {self.pojemnosc} miejsc"
 
     def __repr__(self):
         return str(self)

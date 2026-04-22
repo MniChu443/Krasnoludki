@@ -7,8 +7,8 @@ def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia):
 
     slownik: dict = {
         "indeks": wierzcholek.indeks,
-        "x": wierzcholek.x,
-        "y": wierzcholek.y,
+        "x": wierzcholek.pozycja[0],
+        "y": wierzcholek.pozycja[1],
         "sasiedzi": []
     }
 

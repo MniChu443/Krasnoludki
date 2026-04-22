@@ -4,7 +4,7 @@ from math import dist
 import KlasyGrafu as Graf
 
 
-def wygeneruj_graf(szerokosc = 10, wysokosc = 10):
+def wygeneruj_graf(szerokosc: int = 10, wysokosc: int = 10):
     """
     Generuje graf na siatce szerokosc x wysokosc, wstawiajac jeden wierzcholek w losowym miejscu pola siatki
     :return: Lista obiektów Kopalni i Domków
@@ -33,7 +33,8 @@ def wygeneruj_graf(szerokosc = 10, wysokosc = 10):
     for polacz_domek in domki:
         for polacz_kopalnie in kopalnie:
 
-            odleglosc = dist((polacz_domek.x, polacz_domek.y), (polacz_kopalnie.x, polacz_kopalnie.y)) + rand.random() * 2 - 1
+            # Obliczanie odległości między kopalnią i domkiem (możliwe dewiacje)
+            odleglosc = dist((polacz_domek.pozycja[0], polacz_domek.pozycja[1]), (polacz_kopalnie.pozycja[0], polacz_kopalnie.pozycja[1])) # + rand.random() * 2 - 1
 
             polacz_domek.dodaj_sasiada(polacz_kopalnie.indeks, odleglosc)
             polacz_kopalnie.dodaj_sasiada(polacz_domek.indeks, odleglosc)

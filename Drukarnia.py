@@ -13,9 +13,9 @@ def wypisz_podnaglowek(tekst):
     print(f"{'─' * 60}")
 
 
-def formatuj_wspolrzedne(x, y):
+def formatuj_wspolrzedne(wierzcholek):
     """Formatuje współrzędne do postaci (xxx, yyy)."""
-    return f"({x:3.0f}, {y:3.0f})"
+    return f"({wierzcholek.pozycja[0]:3.0f}, {wierzcholek.pozycja[1]:3.0f})"
 
 
 def wypisz_sasiadow(wierzcholek):
