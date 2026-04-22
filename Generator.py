@@ -4,14 +4,19 @@ from math import dist
 import KlasyGrafu as Graf
 
 
-def wygeneruj_graf():
+def wygeneruj_graf(szerokosc = 10, wysokosc = 10):
+    """
+    Generuje graf na siatce szerokosc x wysokosc, wstawiajac jeden wierzcholek w losowym miejscu pola siatki
+    :return: Lista obiektów Kopalni i Domków
+    """
+
 
     domki: List[Graf.Domek] = []
     kopalnie: List[Graf.Kopalnia] = []
 
     indeks = 0
-    for siatka_x in range (0, 10):
-        for siatka_y in range(0, 10):
+    for siatka_x in range (0, szerokosc):
+        for siatka_y in range(0, wysokosc):
 
             x = siatka_x + rand.randint(0, 9)
             y = siatka_y + rand.randint(0, 9)
