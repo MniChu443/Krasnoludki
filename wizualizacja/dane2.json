@@ -1,0 +1,103 @@
+[
+  {
+    "indeks": 0,
+    "x": 2,
+    "y": 2,
+    "typ": "Domek",
+    "preferencja": "ZLOTO",
+    "sasiedzi": [
+      { "indeks": 1, "odleglosc": 5.4 },
+      { "indeks": 3, "odleglosc": 12.1 },
+      { "indeks": 5, "odleglosc": 8.2 }
+    ]
+  },
+  {
+    "indeks": 1,
+    "x": 6,
+    "y": 3,
+    "typ": "Kopalnia",
+    "zloze": "ZLOTO",
+    "pojemnosc": 2,
+    "sasiedzi": [{ "indeks": 0, "odleglosc": 5.4 }]
+  },
+  {
+    "indeks": 2,
+    "x": 10,
+    "y": 2,
+    "typ": "Domek",
+    "preferencja": "DIAMENTY",
+    "sasiedzi": [
+      { "indeks": 3, "odleglosc": 4.1 },
+      { "indeks": 1, "odleglosc": 7.5 }
+    ]
+  },
+  {
+    "indeks": 3,
+    "x": 12,
+    "y": 5,
+    "typ": "Kopalnia",
+    "zloze": "DIAMENTY",
+    "pojemnosc": 1,
+    "sasiedzi": [{ "indeks": 2, "odleglosc": 4.1 }]
+  },
+  {
+    "indeks": 4,
+    "x": 3,
+    "y": 10,
+    "typ": "Domek",
+    "preferencja": "WEGIEL",
+    "sasiedzi": [
+      { "indeks": 5, "odleglosc": 3.2 },
+      { "indeks": 7, "odleglosc": 9.0 }
+    ]
+  },
+  {
+    "indeks": 5,
+    "x": 5,
+    "y": 12,
+    "typ": "Kopalnia",
+    "zloze": "WEGIEL",
+    "pojemnosc": 3,
+    "sasiedzi": [{ "indeks": 4, "odleglosc": 3.2 }]
+  },
+  {
+    "indeks": 6,
+    "x": 14,
+    "y": 10,
+    "typ": "Domek",
+    "preferencja": "ZLOTO",
+    "sasiedzi": [
+      { "indeks": 1, "odleglosc": 11.5 },
+      { "indeks": 9, "odleglosc": 4.0 }
+    ]
+  },
+  {
+    "indeks": 7,
+    "x": 1,
+    "y": 15,
+    "typ": "Kopalnia",
+    "zloze": "REDSTONE",
+    "pojemnosc": 2,
+    "sasiedzi": [{ "indeks": 8, "odleglosc": 6.3 }]
+  },
+  {
+    "indeks": 8,
+    "x": 5,
+    "y": 16,
+    "typ": "Domek",
+    "preferencja": "REDSTONE",
+    "sasiedzi": [
+      { "indeks": 7, "odleglosc": 6.3 },
+      { "indeks": 5, "odleglosc": 4.5 }
+    ]
+  },
+  {
+    "indeks": 9,
+    "x": 16,
+    "y": 14,
+    "typ": "Kopalnia",
+    "zloze": "ZLOTO",
+    "pojemnosc": 4,
+    "sasiedzi": [{ "indeks": 6, "odleglosc": 4.0 }]
+  }
+]
