@@ -37,6 +37,15 @@ async function wczytaj() {
     mapa[dane[i].indeks] = dane[i];
   }
 
+  for (var i = 0; i < dane.length; i++) {
+    for (var j = 0; j < dane.length; j++) {
+      if (i != j && dane[i].x == dane[j].x && dane[i].y == dane[j].y) {
+        dane[j].x = parseFloat(dane[j].x) + 0.4;
+        dane[j].y = parseFloat(dane[j].y) + 0.4;
+      }
+    }
+  }
+
   rysuj();
 }
 
@@ -72,8 +81,6 @@ c.onmousemove = function (e) {
   hvr = -1;
   for (var i = 0; i < dane.length; i++) {
     var p = dane[i];
-    if (p.typ != "Domek") continue;
-
     var dx = p.x * sk - pos.x;
     var dy = p.y * sk - pos.y;
 
@@ -112,6 +119,9 @@ function rysuj() {
   ctx.translate(kx, ky);
   ctx.scale(zoom, zoom);
 
+  var obiektPodMyszka = mapa[hvr];
+  var aktywneKopalnieDlaDomku = {};
+
   //drogi
 
   for (var i = 0; i < dane.length; i++) {
@@ -136,15 +146,58 @@ function rysuj() {
         if (kopalnie[j].d < zasieg) bliskie.push(kopalnie[j]);
       }
 
+      var pod =
+        hvr == p.indeks && obiektPodMyszka && obiektPodMyszka.typ == "Domek";
+
       if (bliskie.length > 0) {
         for (var j = 0; j < bliskie.length; j++) {
-          rysujLinie(p, bliskie[j], false);
+          var kop = bliskie[j];
+
+          if (pod) {
+            aktywneKopalnieDlaDomku[kop.pkt.indeks] = true;
+          }
+
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(kop.pkt.x * sk, kop.pkt.y * sk);
+
+          if (kop.pkt.zloze == p.preferencja) {
+            ctx.strokeStyle = pod
+              ? "rgba(0, 255, 0, 1)"
+              : "rgba(0, 255, 0, 0.2)";
+          } else {
+            ctx.strokeStyle = pod
+              ? "rgba(255, 255, 255, 0.8)"
+              : "rgba(255, 255, 255, 0.1)";
+          }
+          ctx.lineWidth = pod ? 3 : 1;
+          ctx.stroke();
         }
       } else {
         kopalnie.sort(function (a, b) {
           return a.d - b.d;
         });
-        rysujLinie(p, kopalnie[0], true);
+        var naj = kopalnie[0];
+
+        if (pod) {
+          aktywneKopalnieDlaDomku[naj.pkt.indeks] = true;
+        }
+
+        ctx.beginPath();
+        ctx.setLineDash([5, 5]);
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(naj.pkt.x * sk, naj.pkt.y * sk);
+
+        if (naj.pkt.zloze == p.preferencja) {
+          ctx.strokeStyle = pod ? "rgba(0, 255, 0, 1)" : "rgba(0, 255, 0, 0.2)";
+        } else {
+          ctx.strokeStyle = pod
+            ? "rgba(255, 255, 255, 0.5)"
+            : "rgba(255, 255, 255, 0.1)";
+        }
+        ctx.lineWidth = pod ? 2 : 1;
+        ctx.stroke();
+        ctx.setLineDash([]);
       }
     }
   }
@@ -156,7 +209,10 @@ function rysuj() {
     var px = p.x * sk;
     var py = p.y * sk;
 
-    if (hvr == p.indeks && p.typ == "Domek") {
+    var czyMyszNadTymObiektem =
+      hvr == p.indeks && obiektPodMyszka && obiektPodMyszka.typ == p.typ;
+
+    if (czyMyszNadTymObiektem) {
       ctx.shadowColor = "white";
       ctx.shadowBlur = 15;
       c.style.cursor = "pointer";
@@ -170,43 +226,32 @@ function rysuj() {
 
     ctx.shadowBlur = 0;
 
-    if (hvr == p.indeks || p.typ == "Kopalnia") {
+    var pok = false;
+
+    if (czyMyszNadTymObiektem) {
+      pok = true;
+    }
+
+    if (p.typ == "Kopalnia" && aktywneKopalnieDlaDomku[p.indeks] == true) {
+      pok = true;
+    }
+
+    if (pok) {
       ctx.fillStyle = "white";
       ctx.font = "bold 12px Arial";
       ctx.textAlign = "center";
-      var t = p.typ == "Domek" ? "Chce: " + p.preferencja : p.zloze;
-      ctx.fillText(t, px, py + 30);
+      if (p.typ == "Domek") {
+        var t = "Chce: " + p.preferencja;
+        ctx.fillText(t, px, py + 30);
+      } else {
+        var poj = p.pojemnosc || "0";
+        var t = p.zloze + " (" + poj + ")";
+        ctx.fillText(t, px, py + 30);
+      }
     }
   }
 
   if (hvr == -1) c.style.cursor = "default";
-}
-
-function rysujLinie(p, kop, przerywana) {
-  var x1 = p.x * sk;
-  var y1 = p.y * sk;
-  var x2 = kop.pkt.x * sk;
-  var y2 = kop.pkt.y * sk;
-
-  var pod = hvr == p.indeks;
-
-  ctx.beginPath();
-  ctx.moveTo(x1, y1);
-  ctx.lineTo(x2, y2);
-
-  if (przerywana) ctx.setLineDash([5, 5]);
-
-  if (kop.pkt.zloze == p.preferencja) {
-    ctx.strokeStyle = pod ? "rgba(0, 255, 0, 1)" : "rgba(0, 255, 0, 0.2)";
-  } else {
-    ctx.strokeStyle = pod
-      ? "rgba(255, 255, 255, 0.8)"
-      : "rgba(255, 255, 255, 0.1)";
-  }
-
-  ctx.lineWidth = pod ? 3 : 1;
-  ctx.stroke();
-  ctx.setLineDash([]);
 }
 
 //wczytałem dane z tego testowego jsona i stworzyłem powiedzmy mapę tego co jest. Drogi są rysowane na podstawie odległości, u góry jest zmienna zasieg narazie ustawiona na 3
