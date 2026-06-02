@@ -1,0 +1,1388 @@
+[
+    {
+        "indeks": 1,
+        "x": 1,
+        "y": 5,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 10.63014581273465
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 11.0
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 10.770329614269007
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 9.0
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 10.295630140987
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 11.661903789690601
+            }
+        ],
+        "preferencja": "ZELAZO",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 2,
+        "x": 4,
+        "y": 6,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 8.602325267042627
+            }
+        ],
+        "preferencja": "DIAMENTY",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 3,
+        "x": 5,
+        "y": 7,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 2.23606797749979
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 2.23606797749979
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 5.830951894845301
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 7.211102550927978
+            }
+        ],
+        "preferencja": "REDSTONE",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 4,
+        "x": 0,
+        "y": 8,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 5.830951894845301
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 9.433981132056603
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 12.36931687685298
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 11.045361017187261
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 10.44030650891055
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 10.198039027185569
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 11.40175425099138
+            }
+        ],
+        "preferencja": "LAPIS",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 6,
+        "x": 2,
+        "y": 4,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 10.816653826391969
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 10.04987562112089
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 10.295630140987
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 10.0
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 11.40175425099138
+            }
+        ],
+        "preferencja": "ZLOTO",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 7,
+        "x": 2,
+        "y": 7,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 5.0990195135927845
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 8.48528137423857
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 10.198039027185569
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 9.219544457292887
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 8.246211251235321
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 8.54400374531753
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 9.848857801796104
+            }
+        ],
+        "preferencja": "LAPIS",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 8,
+        "x": 7,
+        "y": 12,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 9.848857801796104
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 6.0
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 4.242640687119285
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 8.602325267042627
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 4.123105625617661
+            }
+        ],
+        "preferencja": "REDSTONE",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 9,
+        "x": 9,
+        "y": 4,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 9.055385138137417
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 7.280109889280518
+            }
+        ],
+        "preferencja": "WEGIEL",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 10,
+        "x": 4,
+        "y": 8,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 5.0990195135927845
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 6.4031242374328485
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 1.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 8.54400374531753
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 7.615773105863909
+            }
+        ],
+        "preferencja": "LAPIS",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 11,
+        "x": 7,
+        "y": 3,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 4.0
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 10.04987562112089
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 8.94427190999916
+            }
+        ],
+        "preferencja": "ZLOTO",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 12,
+        "x": 3,
+        "y": 9,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 6.0
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 6.4031242374328485
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 1.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 9.848857801796104
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 8.0
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 8.246211251235321
+            }
+        ],
+        "preferencja": "ZLOTO",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 13,
+        "x": 10,
+        "y": 8,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 8.602325267042627
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 2.0
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 3.1622776601683795
+            }
+        ],
+        "preferencja": "ZLOTO",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 15,
+        "x": 6,
+        "y": 9,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 2.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 5.656854249492381
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 5.385164807134504
+            }
+        ],
+        "preferencja": "LAPIS",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 18,
+        "x": 3,
+        "y": 3,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 0.0
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 11.180339887498949
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 9.219544457292887
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 10.0
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 9.899494936611665
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 11.313708498984761
+            }
+        ],
+        "preferencja": "WEGIEL",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 21,
+        "x": 6,
+        "y": 7,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 6.4031242374328485
+            }
+        ],
+        "preferencja": "REDSTONE",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 23,
+        "x": 8,
+        "y": 12,
+        "sasiedzi": [
+            {
+                "indeks": 0,
+                "odleglosc": 10.295630140987
+            },
+            {
+                "indeks": 5,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 14,
+                "odleglosc": 1.0
+            },
+            {
+                "indeks": 16,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 17,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 19,
+                "odleglosc": 4.242640687119285
+            },
+            {
+                "indeks": 20,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 22,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 24,
+                "odleglosc": 3.1622776601683795
+            }
+        ],
+        "preferencja": "WEGIEL",
+        "typ": "Domek"
+    },
+    {
+        "indeks": 0,
+        "x": 3,
+        "y": 3,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 5.830951894845301
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 9.848857801796104
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 5.0990195135927845
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 4.0
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 6.0
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 8.602325267042627
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 0.0
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 10.295630140987
+            }
+        ],
+        "pojemnosc": 3,
+        "zloze": "LAPIS",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 5,
+        "x": 7,
+        "y": 6,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 2.23606797749979
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 5.0990195135927845
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 6.0
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 6.082762530298219
+            }
+        ],
+        "pojemnosc": 1,
+        "zloze": "REDSTONE",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 14,
+        "x": 8,
+        "y": 13,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 10.63014581273465
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 9.433981132056603
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 10.816653826391969
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 8.48528137423857
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 9.055385138137417
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 6.4031242374328485
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 10.04987562112089
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 6.4031242374328485
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 11.180339887498949
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 1.0
+            }
+        ],
+        "pojemnosc": 2,
+        "zloze": "WEGIEL",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 16,
+        "x": 4,
+        "y": 9,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 2.23606797749979
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 4.242640687119285
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 1.0
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 1.0
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 2.0
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 2.8284271247461903
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 5.0
+            }
+        ],
+        "pojemnosc": 2,
+        "zloze": "WEGIEL",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 17,
+        "x": 12,
+        "y": 5,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 11.0
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 12.36931687685298
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 10.04987562112089
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 10.198039027185569
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 8.602325267042627
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 8.54400374531753
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 9.848857801796104
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 9.219544457292887
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 8.06225774829855
+            }
+        ],
+        "pojemnosc": 4,
+        "zloze": "WEGIEL",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 19,
+        "x": 11,
+        "y": 9,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 10.770329614269007
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 11.045361017187261
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 10.295630140987
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 9.219544457292887
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 8.0
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 10.0
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 4.242640687119285
+            }
+        ],
+        "pojemnosc": 1,
+        "zloze": "REDSTONE",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 20,
+        "x": 10,
+        "y": 5,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 9.0
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 10.44030650891055
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 8.246211251235321
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 1.4142135623730951
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 6.708203932499369
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 8.06225774829855
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 3.0
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 5.656854249492381
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 4.47213595499958
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 7.280109889280518
+            }
+        ],
+        "pojemnosc": 4,
+        "zloze": "ZLOTO",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 22,
+        "x": 10,
+        "y": 10,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 10.295630140987
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 5.830951894845301
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 10.198039027185569
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 10.0
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 8.54400374531753
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 3.605551275463989
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 6.082762530298219
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 6.324555320336759
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 7.0710678118654755
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 2.0
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 9.899494936611665
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 5.0
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 2.8284271247461903
+            }
+        ],
+        "pojemnosc": 3,
+        "zloze": "DIAMENTY",
+        "typ": "Kopalnia"
+    },
+    {
+        "indeks": 24,
+        "x": 11,
+        "y": 11,
+        "sasiedzi": [
+            {
+                "indeks": 1,
+                "odleglosc": 11.661903789690601
+            },
+            {
+                "indeks": 2,
+                "odleglosc": 8.602325267042627
+            },
+            {
+                "indeks": 3,
+                "odleglosc": 7.211102550927978
+            },
+            {
+                "indeks": 4,
+                "odleglosc": 11.40175425099138
+            },
+            {
+                "indeks": 6,
+                "odleglosc": 11.40175425099138
+            },
+            {
+                "indeks": 7,
+                "odleglosc": 9.848857801796104
+            },
+            {
+                "indeks": 8,
+                "odleglosc": 4.123105625617661
+            },
+            {
+                "indeks": 9,
+                "odleglosc": 7.280109889280518
+            },
+            {
+                "indeks": 10,
+                "odleglosc": 7.615773105863909
+            },
+            {
+                "indeks": 11,
+                "odleglosc": 8.94427190999916
+            },
+            {
+                "indeks": 12,
+                "odleglosc": 8.246211251235321
+            },
+            {
+                "indeks": 13,
+                "odleglosc": 3.1622776601683795
+            },
+            {
+                "indeks": 15,
+                "odleglosc": 5.385164807134504
+            },
+            {
+                "indeks": 18,
+                "odleglosc": 11.313708498984761
+            },
+            {
+                "indeks": 21,
+                "odleglosc": 6.4031242374328485
+            },
+            {
+                "indeks": 23,
+                "odleglosc": 3.1622776601683795
+            }
+        ],
+        "pojemnosc": 2,
+        "zloze": "REDSTONE",
+        "typ": "Kopalnia"
+    }
+]

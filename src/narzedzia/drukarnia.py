@@ -1,4 +1,4 @@
-import KlasyGrafu
+from modele import klasy_grafu as KlasyGrafu
 
 def wypisz_naglowek(tekst):
     """Wypisuje sformatowany nagłówek sekcji."""

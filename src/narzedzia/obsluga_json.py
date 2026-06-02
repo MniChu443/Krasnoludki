@@ -1,4 +1,4 @@
-import KlasyGrafu as Graf
+from modele import klasy_grafu as Graf
 from typing import List
 import json
 
@@ -47,12 +47,15 @@ def dict_do_node(wierzcholek: dict):
     return node
 
 
+from pathlib import Path
+
 def zapisz_do_pliku(lista_wierzcholkow: List[Graf.Domek | Graf.Kopalnia], sciezka: str):
 
     lista = []
     for wierzcholek in lista_wierzcholkow:
         lista.append(node_na_dict(wierzcholek))
 
+    Path(sciezka).parent.mkdir(parents=True, exist_ok=True)
     with open(sciezka, "w") as plik:
         plik.write(json.dumps(lista, ensure_ascii=False, indent=4))
 

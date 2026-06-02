@@ -1,5 +1,5 @@
 import math
-import KlasyGrafu
+from modele import klasy_grafu as KlasyGrafu
 
 
 def najkrotsza_droga_ksiecia(points: list[KlasyGrafu.Kopalnia]):

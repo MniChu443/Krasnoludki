@@ -1,7 +1,7 @@
 import random as rand
 from typing import List
 from math import dist
-import KlasyGrafu as Graf
+from modele import klasy_grafu as Graf
 
 
 def wygeneruj_graf(szerokosc: int = 10, wysokosc: int = 10):

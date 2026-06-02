@@ -1,15 +1,14 @@
-import Generator
-import ObslugaJSON
-import KsiazeAlgorytm
-import Drukarnia
-import KlasyGrafu
+from narzedzia import generator as Generator
+from narzedzia import obsluga_json as ObslugaJSON
+from algorytmy import ksiaze_algorytm as KsiazeAlgorytm
+from narzedzia import drukarnia as Drukarnia
+from modele import klasy_grafu as KlasyGrafu
 
 
 # Generowanie / wczytanie grafu
 graf = Generator.wygeneruj_graf(5, 5)
-ObslugaJSON.zapisz_do_pliku(graf, "DaneTestowe/test.json")
-graf = ObslugaJSON.wczytaj_plik("DaneTestowe/test.json")
-
+ObslugaJSON.zapisz_do_pliku(graf, "../data/wyjscie/test.json")
+graf = ObslugaJSON.wczytaj_plik("../data/wyjscie/test.json")
 Drukarnia.pokaz_statystyki(graf)
 Drukarnia.pokaz_domki(graf)
 Drukarnia.pokaz_kopalnie(graf)

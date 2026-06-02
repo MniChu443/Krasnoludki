@@ -1,4 +1,4 @@
-import KlasyGrafu as Graf
+from modele import klasy_grafu as Graf
 
 #funckja znajdz_najblizsza_kopalenie ma za zadanie znalezc najblizsza kopalnie dla kazdego domku
 # z uzwgleniem preferencji
