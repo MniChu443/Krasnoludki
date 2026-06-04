@@ -42,7 +42,7 @@ def dict_do_node(wierzcholek: dict):
 
     if wierzcholek["typ"] == "Domek":
         node = Graf.Domek(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["preferencja"])
-    elif wierzcholek["typ"] == "Kopalnia":
+    else:
         node = Graf.Kopalnia(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["pojemnosc"], wierzcholek["zloze"])
 
     for sasiad in wierzcholek["sasiedzi"]:
@@ -76,10 +76,10 @@ def wczytaj_plik(sciezka: str):
 
 def node_na_string(wierzcholek: Graf.Domek | Graf.Kopalnia):
 
-    linijka = str(wierzcholek.indeks) + " " + str(wierzcholek.pozycja[0]) + " " + str(wierzcholek.pozycja[1])
+    linijka = f"{str(wierzcholek.indeks)} {str(wierzcholek.pozycja[0])} {str(wierzcholek.pozycja[1])}"
 
-    if type(wierzcholek) is Graf.Domek: linijka += " D " + wierzcholek.preferencja + " ."
-    else: linijka += " K " + wierzcholek.zloze + " " + str(wierzcholek.pojemnosc)
+    if type(wierzcholek) is Graf.Domek: linijka += f" D {wierzcholek.preferencja} ."
+    else: linijka += f" K {wierzcholek.zloze} {str(wierzcholek.pojemnosc)}"
 
     # for sasiad in wierzcholek.sasiedzi:
     #     linijka += " " + str(sasiad.indeks_sasiada) + " " + str(sasiad.odleglosc)
@@ -127,7 +127,7 @@ def wczytaj_plik_raw(sciezka: str):
 def wczytaj_plik_testowy(rozmiar: int, proporcja: float, perkolacja: float, sciezka: str):
 
     pliki = [ plik for plik in listdir(sciezka) if isfile(join(sciezka, plik)) ]
-    if len(pliki) == 0: raise "wczytaj_plik_testowy(): Brak plików w \"" + sciezka + "\""
+    if len(pliki) == 0: raise f"wczytaj_plik_testowy(): Brak plików w \"{sciezka}\""
 
     wartosci = [ nazwa.split(".")[0].split("_")[1:] for nazwa in pliki ]
     wartosci = [ [int(w) for w in lista] for lista in wartosci ]

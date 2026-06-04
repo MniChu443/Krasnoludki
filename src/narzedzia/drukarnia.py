@@ -39,7 +39,7 @@ def pokaz_statystyki(graf):
 
     print(f"  Liczba domków:   {len(domki)}")
     print(f"  Liczba kopalni:  {len(kopalnie)}")
-    print(f"  Razem wierzchołków: {len(graf)}")
+    print(f"  Razem wierzchołków: {len(graf)}\n")
 
 
 def pokaz_domki(graf):
@@ -81,4 +81,4 @@ def pokaz_otoczke(trasa: list[KlasyGrafu.Kopalnia], dlugosc: float):
 
     print(f"\n  {'─' * 40}")
     print(f"  Całkowita długość trasy: {dlugosc:.2f} jednostek")
-    print(f"  {'─' * 40}")
+    print(f"  {'─' * 40}\n")

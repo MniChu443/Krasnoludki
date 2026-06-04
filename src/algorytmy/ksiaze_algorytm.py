@@ -1,5 +1,6 @@
 import math
 from modele import klasy_grafu as KlasyGrafu
+from narzedzia import drukarnia as Drukarnia
 
 
 def najkrotsza_droga_ksiecia(points: list[KlasyGrafu.Kopalnia]):
@@ -45,3 +46,16 @@ def oblicz_dlugosc_trasy(hull):
         p2 = hull[(i + 1) % len(hull)].pozycja
         perimeter += math.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2)
     return perimeter
+
+
+def wyznacz_trase_ksiecia(graf):
+
+    kopalnie = [w for w in graf if type(w) is KlasyGrafu.Kopalnia]
+
+    if kopalnie:
+        trasa = najkrotsza_droga_ksiecia(kopalnie)
+        dlugosc = oblicz_dlugosc_trasy(trasa)
+        Drukarnia.pokaz_otoczke(trasa, dlugosc)
+    else:
+        print("  Brak kopalni - trasa niemożliwa do wyznaczenia.")
+

@@ -6,14 +6,14 @@ from narzedzia import obsluga_plikow as ObslugaJSON
 SCIEZKA_DANYCH = "../../dane"
 
 def sciezka_katalogu(katalog: str):
-    return SCIEZKA_DANYCH + "/" + katalog
+    return f"{SCIEZKA_DANYCH}/{katalog}"
 
 
 def wygeneruj_i_zapisz_graf(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH):
 
     graf = Generator.wygeneruj_graf(szerokosc, wysokosc, proporcja, perkolacja)
     if len(graf) == 2: return
-    ObslugaJSON.zapisz_do_pliku_raw(graf, sciezka + "/" + nazwa + ".txt")
+    ObslugaJSON.zapisz_do_pliku_raw(graf, f"{sciezka}/{nazwa}.txt")
 
 
 def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[float], lista_perkolacji: list[float], sciezka: str = SCIEZKA_DANYCH):
@@ -28,10 +28,10 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
         for proporcja in lista_proporcji:
             for perkolacja in lista_perkolacji:
 
-                nazwa = "test_" + str(rozmiar) + "_" + str(proporcja * 100).split(".")[0] + "_" + str(perkolacja * 100).split(".")[0]
+                nazwa = f"test_{str(rozmiar)}_{str(proporcja * 100).split(".")[0]}_{str(perkolacja * 100).split(".")[0]}"
                 wygeneruj_i_zapisz_graf(nazwa, rozmiar, rozmiar, proporcja, perkolacja, sciezka)
 
-                print("   Wygenerowano i zapisano graf [" + str(indeks) + ilosc)
+                print(f"   Wygenerowano i zapisano graf [{str(indeks)}{ilosc}")
                 indeks += 1
 
     print("> Wygenerowano wszystkie grafy!")
