@@ -50,7 +50,7 @@ def oblicz_dlugosc_trasy(hull):
 
 def wyznacz_trase_ksiecia(graf):
 
-    kopalnie = [w for w in graf if type(w) is KlasyGrafu.Kopalnia]
+    kopalnie = KlasyGrafu.kopalnie_grafu(graf)
 
     if kopalnie:
         trasa = najkrotsza_droga_ksiecia(kopalnie)

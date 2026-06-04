@@ -1,6 +1,4 @@
-from typing import List
-
-materialy = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
+MATERIALY = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
 
 
 class Sasiad:
@@ -21,7 +19,7 @@ class NodeGrafu:
     def __init__(self, indeks: int, x: float, y: float):
         self.indeks = indeks
         self.pozycja = (x, y)
-        self.sasiedzi: List[Sasiad] = []
+        self.sasiedzi: list[Sasiad] = []
 
     def dodaj_sasiada(self, sasiad: int, odleglosc: float):
         nowy_sasiad = Sasiad(sasiad, odleglosc)
@@ -53,3 +51,11 @@ class Kopalnia(NodeGrafu):
 
     def __repr__(self):
         return str(self)
+
+
+def domki_grafu(graf):
+    return [w for w in graf if type(w) is Domek]
+
+
+def kopalnie_grafu(graf):
+    return [w for w in graf if type(w) is Kopalnia]

@@ -30,16 +30,16 @@ def wygeneruj_graf(szerokosc: int = 10, wysokosc: int = 10, proporcja: float = 0
             y = siatka_y * 10 + rand.randint(0, 9)
 
             if rand.uniform(0, 1) < proporcja:
-                nowy_domek = Graf.Domek(indeks, x, y, rand.choice(Graf.materialy))
+                nowy_domek = Graf.Domek(indeks, x, y, rand.choice(Graf.MATERIALY))
                 domki.append(nowy_domek)
             else:
-                nowy_kopalnia = Graf.Kopalnia(indeks, x, y, rand.randint(1, 4), rand.choice(Graf.materialy))
+                nowy_kopalnia = Graf.Kopalnia(indeks, x, y, rand.randint(1, 4), rand.choice(Graf.MATERIALY))
                 kopalnie.append(nowy_kopalnia)
 
             indeks += 1
 
-    if len(domki) == 0: domki.append(Graf.Domek(indeks, 0, 0, rand.choice(Graf.materialy)))
-    if len(kopalnie) == 0: kopalnie.append(Graf.Kopalnia(indeks, 0, 0, rand.randint(1, 4), rand.choice(Graf.materialy)))
+    if len(domki) == 0: domki.append(Graf.Domek(indeks, 0, 0, rand.choice(Graf.MATERIALY)))
+    if len(kopalnie) == 0: kopalnie.append(Graf.Kopalnia(indeks, 0, 0, rand.randint(1, 4), rand.choice(Graf.MATERIALY)))
 
     if not generuj_sasiadow:
         return domki + kopalnie

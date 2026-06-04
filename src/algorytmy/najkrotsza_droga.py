@@ -1,4 +1,4 @@
-from modele import klasy_grafu as Graf
+from modele import klasy_grafu as KlasyGrafu
 
 #funckja znajdz_najblizsza_kopalenie ma za zadanie znalezc najblizsza kopalnie dla kazdego domku
 # z uzwgleniem preferencji
@@ -6,18 +6,8 @@ from modele import klasy_grafu as Graf
 
 def znajdz_najblizsza_kopalnie(lista_wierzcholkow):
 
-    wierzcholki = {}
-
-    domki = []
-    kopalnie = []
-
-    for v in lista_wierzcholkow:
-        wierzcholki[v.indeks] = v
-
-        if isinstance(v, Graf.Domek):
-            domki.append(v)
-        elif isinstance(v, Graf.Kopalnia):
-            kopalnie.append(v)
+    domki = KlasyGrafu.domki_grafu(lista_wierzcholkow)
+    kopalnie = KlasyGrafu.kopalnie_grafu(lista_wierzcholkow)
 
     wynik = {}
 

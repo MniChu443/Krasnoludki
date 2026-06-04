@@ -34,8 +34,8 @@ def wypisz_sasiadow(wierzcholek):
 def pokaz_statystyki(graf):
     wypisz_naglowek("PODSUMOWANIE GRAFU DOMKÓW I KOPALNI")
 
-    domki = [w for w in graf if type(w) is KlasyGrafu.Domek]
-    kopalnie = [w for w in graf if type(w) is KlasyGrafu.Kopalnia]
+    domki = KlasyGrafu.domki_grafu(graf)
+    kopalnie = KlasyGrafu.kopalnie_grafu(graf)
 
     print(f"  Liczba domków:   {len(domki)}")
     print(f"  Liczba kopalni:  {len(kopalnie)}")
