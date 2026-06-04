@@ -1,5 +1,4 @@
 import random as rand
-from typing import List
 from math import dist
 from modele import klasy_grafu as KlasyGrafu
 

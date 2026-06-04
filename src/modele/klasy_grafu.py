@@ -1,3 +1,5 @@
+from math import dist
+
 MATERIALY_TESTOWE = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
 
 
@@ -25,6 +27,9 @@ class NodeGrafu:
         nowy_sasiad = Sasiad(sasiad, odleglosc)
         self.sasiedzi.append(nowy_sasiad)
 
+    def odleglosc(self, node: NodeGrafu):
+        return dist((self.pozycja[0], self.pozycja[1]), (node.pozycja[0], node.pozycja[1]))
+
 
 class Domek(NodeGrafu):
 
@@ -51,14 +56,6 @@ class Kopalnia(NodeGrafu):
 
     def __repr__(self):
         return str(self)
-
-
-def domki_grafu(graf):
-    return [w for w in graf if type(w) is Domek]
-
-
-def kopalnie_grafu(graf):
-    return [w for w in graf if type(w) is Kopalnia]
 
 
 class Miasto:
