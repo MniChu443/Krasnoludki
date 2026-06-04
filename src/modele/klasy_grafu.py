@@ -59,3 +59,26 @@ def domki_grafu(graf):
 
 def kopalnie_grafu(graf):
     return [w for w in graf if type(w) is Kopalnia]
+
+
+class Miasto:
+
+    def __init__(self, materialy: list[str] = None):
+        self.domki: list[Domek] = []
+        self.kopalnie: list[Kopalnia] = []
+
+        if materialy is None: materialy = MATERIALY
+        self.materialy: list[str] = materialy
+
+    def __iter__(self):
+        return iter(self.domki + self.kopalnie)
+
+    def __len__(self):
+        return len(self.domki) + len(self.kopalnie)
+
+    def __getitem__(self, item):
+        return (self.domki + self.kopalnie)[item]
+
+    def dodaj(self, budynek: Domek | Kopalnia):
+        if isinstance(budynek, Domek): self.domki.append(budynek)
+        else: self.kopalnie.append(budynek)

@@ -31,42 +31,31 @@ def wypisz_sasiadow(wierzcholek):
     return ", ".join(sasiady)
 
 
-def pokaz_statystyki(graf):
+def pokaz_statystyki(miasto: KlasyGrafu.Miasto):
     wypisz_naglowek("PODSUMOWANIE GRAFU DOMKÓW I KOPALNI")
 
-    domki = KlasyGrafu.domki_grafu(graf)
-    kopalnie = KlasyGrafu.kopalnie_grafu(graf)
-
-    print(f"  Liczba domków:   {len(domki)}")
-    print(f"  Liczba kopalni:  {len(kopalnie)}")
-    print(f"  Razem wierzchołków: {len(graf)}\n")
+    print(f"  Liczba domków:   {len(miasto.domki)}")
+    print(f"  Liczba kopalni:  {len(miasto.kopalnie)}")
+    print(f"  Razem wierzchołków: {len(miasto)}\n")
 
 
-def pokaz_domki(graf):
+def pokaz_domki(miasto: KlasyGrafu.Miasto):
     wypisz_podnaglowek("DOMKI (preferencje krasnoludów)")
 
     print(f"{'Indeks':<8} {'Pozycja':<12} {'Preferencja':<12} {'Sąsiedzi (indeks, odległość)':<30}")
     print(f"{'─' * 8} {'─' * 12} {'─' * 12} {'─' * 30}")
-    for domek in graf:
-        if type(domek) is not KlasyGrafu.Domek:
-            continue
-
-        print(
-            f"#{domek.indeks:<7} {formatuj_wspolrzedne(domek):<12} {domek.preferencja:<12} {wypisz_sasiadow(domek):<30}")
+    for domek in miasto.domki:
+        print(f"#{domek.indeks:<7} {formatuj_wspolrzedne(domek):<12} {domek.preferencja:<12} {wypisz_sasiadow(domek):<30}")
 
 
-def pokaz_kopalnie(graf):
+def pokaz_kopalnie(miasto: KlasyGrafu.Miasto):
     wypisz_podnaglowek("KOPALNIE (złoża surowców)")
 
     print(f"{'Indeks':<8} {'Pozycja':<12} {'Złoże':<12} {'Miejsc':<8} {'Sąsiedzi (indeks, odległość)':<30}")
     print(f"{'─' * 8} {'─' * 12} {'─' * 12} {'─' * 8} {'─' * 30}")
 
-    for kopalnia in graf:
-        if type(kopalnia) is not KlasyGrafu.Kopalnia:
-            continue
-
-        print(
-            f"#{kopalnia.indeks:<7} {formatuj_wspolrzedne(kopalnia):<12} {kopalnia.zloze:<12} {kopalnia.pojemnosc:<8} {wypisz_sasiadow(kopalnia):<30}")
+    for kopalnia in miasto.kopalnie:
+        print(f"#{kopalnia.indeks:<7} {formatuj_wspolrzedne(kopalnia):<12} {kopalnia.zloze:<12} {kopalnia.pojemnosc:<8} {wypisz_sasiadow(kopalnia):<30}")
 
 
 def pokaz_otoczke(trasa: list[KlasyGrafu.Kopalnia], dlugosc: float):

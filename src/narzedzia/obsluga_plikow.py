@@ -1,5 +1,4 @@
-from modele import klasy_grafu as Graf
-from typing import List
+from modele import klasy_grafu as KlasyGrafu
 import json
 from pathlib import Path
 from os import listdir
@@ -7,7 +6,7 @@ from os.path import isfile, join
 import random as rand
 
 
-def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia):
+def node_na_dict(wierzcholek: KlasyGrafu.Domek | KlasyGrafu.Kopalnia):
 
     slownik: dict = {
         "indeks": wierzcholek.indeks,
@@ -25,10 +24,10 @@ def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia):
 
         slownik["sasiedzi"].append(slownik_sasiada)
 
-    if type(wierzcholek) is Graf.Domek:
+    if isinstance(wierzcholek, KlasyGrafu.Domek):
         slownik["preferencja"] = wierzcholek.preferencja
         slownik["typ"] = "Domek"
-    elif type(wierzcholek) is Graf.Kopalnia:
+    else:
         slownik["pojemnosc"] = wierzcholek.pojemnosc
         slownik["zloze"] = wierzcholek.zloze
         slownik["typ"] = "Kopalnia"
@@ -38,24 +37,24 @@ def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia):
 
 def dict_do_node(wierzcholek: dict):
 
-    node: Graf.Domek | Graf.Kopalnia
+    node: KlasyGrafu.Domek | KlasyGrafu.Kopalnia
 
     if wierzcholek["typ"] == "Domek":
-        node = Graf.Domek(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["preferencja"])
+        node = KlasyGrafu.Domek(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["preferencja"])
     else:
-        node = Graf.Kopalnia(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["pojemnosc"], wierzcholek["zloze"])
+        node = KlasyGrafu.Kopalnia(wierzcholek["indeks"], wierzcholek["x"], wierzcholek["y"], wierzcholek["pojemnosc"], wierzcholek["zloze"])
 
     for sasiad in wierzcholek["sasiedzi"]:
-        node.sasiedzi.append(Graf.Sasiad(sasiad["indeks"], sasiad["odleglosc"]))
+        node.sasiedzi.append(KlasyGrafu.Sasiad(sasiad["indeks"], sasiad["odleglosc"]))
 
     return node
 
 
-def zapisz_do_pliku(lista_wierzcholkow: List[Graf.Domek | Graf.Kopalnia], sciezka: str):
+def zapisz_do_pliku(miasto: KlasyGrafu.Miasto, sciezka: str):
 
     lista = []
-    for wierzcholek in lista_wierzcholkow:
-        lista.append(node_na_dict(wierzcholek))
+    for budynek in miasto:
+        lista.append(node_na_dict(budynek))
 
     Path(sciezka).parent.mkdir(parents = True, exist_ok = True)
     with open(sciezka, "w") as plik:
@@ -67,18 +66,18 @@ def wczytaj_plik(sciezka: str):
     with open(sciezka, "r") as plik:
         dane_json = json.loads(plik.read())
 
-    lista = []
+    miasto = KlasyGrafu.Miasto()
     for slownik in dane_json:
-        lista.append(dict_do_node(slownik))
+        miasto.dodaj(dict_do_node(slownik))
 
-    return lista
+    return miasto
 
 
-def node_na_string(wierzcholek: Graf.Domek | Graf.Kopalnia):
+def node_na_string(wierzcholek: KlasyGrafu.Domek | KlasyGrafu.Kopalnia):
 
     linijka = f"{str(wierzcholek.indeks)} {str(wierzcholek.pozycja[0])} {str(wierzcholek.pozycja[1])}"
 
-    if type(wierzcholek) is Graf.Domek: linijka += f" D {wierzcholek.preferencja} ."
+    if isinstance(wierzcholek, KlasyGrafu.Domek): linijka += f" D {wierzcholek.preferencja} ."
     else: linijka += f" K {wierzcholek.zloze} {str(wierzcholek.pojemnosc)}"
 
     # for sasiad in wierzcholek.sasiedzi:
@@ -91,12 +90,12 @@ def string_na_node(wierzcholek: str):
 
     wlasciwosci = wierzcholek.split(" ")
 
-    node: Graf.Domek | Graf.Kopalnia
+    node: KlasyGrafu.Domek | KlasyGrafu.Kopalnia
 
     if wlasciwosci[3] == "D":
-        node = Graf.Domek(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), wlasciwosci[4])
+        node = KlasyGrafu.Domek(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), wlasciwosci[4])
     else:
-        node = Graf.Kopalnia(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), int(wlasciwosci[5]), wlasciwosci[4])
+        node = KlasyGrafu.Kopalnia(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), int(wlasciwosci[5]), wlasciwosci[4])
 
     # for i in range(6, len(wlasciwosci), 2):
     #     node.sasiedzi.append(Graf.Sasiad(int(wlasciwosci[i]), float(wlasciwosci[i + 1])))
@@ -104,24 +103,24 @@ def string_na_node(wierzcholek: str):
     return node
 
 
-def zapisz_do_pliku_raw(lista_wierzcholkow: List[Graf.Domek | Graf.Kopalnia], sciezka: str):
+def zapisz_do_pliku_raw(miasto: KlasyGrafu.Miasto, sciezka: str):
 
     with open(sciezka, "w") as plik:
-        for wierzcholek in lista_wierzcholkow:
+        for wierzcholek in miasto:
             plik.write(node_na_string(wierzcholek))
 
 
-def wczytaj_plik_raw(sciezka: str):
+def wczytaj_plik_raw(sciezka: str): # WARNING: ODDZIELENIE DOMEK/KOPALNIA W PLIKU
 
     with open(sciezka, "r") as plik:
         dane = plik.read()
 
-    lista = []
+    miasto = KlasyGrafu.Miasto()
     for linijka in dane.split("\n"):
         if linijka == "" : continue
-        lista.append(string_na_node(linijka))
+        miasto.dodaj(string_na_node(linijka))
 
-    return lista
+    return miasto
 
 
 def wczytaj_plik_testowy(rozmiar: int, proporcja: float, perkolacja: float, sciezka: str):

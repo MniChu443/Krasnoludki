@@ -4,21 +4,18 @@ from modele import klasy_grafu as KlasyGrafu
 # z uzwgleniem preferencji
 # zwraca {kopalnia: indeks_kopalni, dystans: odleglosc}
 
-def znajdz_najblizsza_kopalnie(lista_wierzcholkow):
-
-    domki = KlasyGrafu.domki_grafu(lista_wierzcholkow)
-    kopalnie = KlasyGrafu.kopalnie_grafu(lista_wierzcholkow)
+def znajdz_najblizsza_kopalnie(miasto: KlasyGrafu.Miasto):
 
     wynik = {}
 
-    for domek in domki:
+    for domek in miasto.domki:
         pasujace_kopalnie = []
-        for k in kopalnie:
+        for k in miasto.kopalnie:
             if k.zloze == domek.preferencja:
                 pasujace_kopalnie.append(k)
 
         if len(pasujace_kopalnie) == 0:
-            pasujace_kopalnie = kopalnie
+            pasujace_kopalnie = miasto.kopalnie
 
         najlepsza_kopalnia = None
         najlepszy_dystans = 999999999

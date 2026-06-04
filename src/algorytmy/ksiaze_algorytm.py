@@ -48,12 +48,10 @@ def oblicz_dlugosc_trasy(hull):
     return perimeter
 
 
-def wyznacz_trase_ksiecia(graf):
+def wyznacz_trase_ksiecia(miasto: KlasyGrafu.Miasto):
 
-    kopalnie = KlasyGrafu.kopalnie_grafu(graf)
-
-    if kopalnie:
-        trasa = najkrotsza_droga_ksiecia(kopalnie)
+    if miasto.kopalnie:
+        trasa = najkrotsza_droga_ksiecia(miasto.kopalnie)
         dlugosc = oblicz_dlugosc_trasy(trasa)
         Drukarnia.pokaz_otoczke(trasa, dlugosc)
     else:
