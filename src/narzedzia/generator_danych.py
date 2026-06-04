@@ -9,11 +9,11 @@ def sciezka_katalogu(katalog: str):
     return f"{SCIEZKA_DANYCH}/{katalog}"
 
 
-def wygeneruj_i_zapisz_graf(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH):
+def wygeneruj_i_zapisz_miasto(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH):
 
-    graf = Generator.wygeneruj_graf(szerokosc, wysokosc, proporcja, perkolacja)
-    if len(graf) == 2: return
-    ObslugaJSON.zapisz_do_pliku_raw(graf, f"{sciezka}/{nazwa}.txt")
+    miasto = Generator.wygeneruj_miasto(szerokosc, wysokosc, proporcja, perkolacja)
+    if len(miasto) == 2: return
+    ObslugaJSON.zapisz_do_pliku_raw(miasto, f"{sciezka}/{nazwa}.txt")
 
 
 def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[float], lista_perkolacji: list[float], sciezka: str = SCIEZKA_DANYCH):
@@ -29,7 +29,7 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
             for perkolacja in lista_perkolacji:
 
                 nazwa = f"test_{str(rozmiar)}_{str(proporcja * 100).split(".")[0]}_{str(perkolacja * 100).split(".")[0]}"
-                wygeneruj_i_zapisz_graf(nazwa, rozmiar, rozmiar, proporcja, perkolacja, sciezka)
+                wygeneruj_i_zapisz_miasto(nazwa, rozmiar, rozmiar, proporcja, perkolacja, sciezka)
 
                 print(f"   Wygenerowano i zapisano graf [{str(indeks)}{ilosc}")
                 indeks += 1

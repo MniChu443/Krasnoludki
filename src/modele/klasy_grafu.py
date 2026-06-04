@@ -1,4 +1,4 @@
-MATERIALY = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
+MATERIALY_TESTOWE = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
 
 
 class Sasiad:
@@ -67,7 +67,7 @@ class Miasto:
         self.domki: list[Domek] = []
         self.kopalnie: list[Kopalnia] = []
 
-        if materialy is None: materialy = MATERIALY
+        if materialy is None: materialy = MATERIALY_TESTOWE
         self.materialy: list[str] = materialy
 
     def __iter__(self):

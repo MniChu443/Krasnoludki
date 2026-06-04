@@ -110,7 +110,7 @@ def zapisz_do_pliku_raw(miasto: KlasyGrafu.Miasto, sciezka: str):
             plik.write(node_na_string(wierzcholek))
 
 
-def wczytaj_plik_raw(sciezka: str): # WARNING: ODDZIELENIE DOMEK/KOPALNIA W PLIKU
+def wczytaj_plik_raw(sciezka: str):
 
     with open(sciezka, "r") as plik:
         dane = plik.read()

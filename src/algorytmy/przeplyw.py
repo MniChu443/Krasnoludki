@@ -9,7 +9,7 @@ class Polaczenie:
         self.odleglosc = odleglosc
 
     def __str__(self):
-        return f" -{self.przepustowosc}-> {self.sasiad}"
+        return f"-{self.przepustowosc}-> {self.sasiad}"
 
     def __repr__(self):
         return str(self)
@@ -23,7 +23,7 @@ class Wierzcholek:
 
     def __str__(self):
         sasiedzi = ""
-        for p in self.polaczenia: sasiedzi += f"{p}"
+        for p in self.polaczenia: sasiedzi += f" | {p}"
         return f"({self.indeks}){sasiedzi}"
 
     def __repr__(self):
@@ -57,12 +57,12 @@ class GrafDwudzielny:
             nowy = Wierzcholek(domek.indeks)
             self.zrodlo.dodaj_polaczenie(domek.indeks, 1)
 
+            for indeks, indeks_kopalni in enumerate(self.indeksy_kopalni):
+                if domek.preferencja != self.zloza_kopalni[indeks]: continue
+                nowy.dodaj_polaczenie(indeks_kopalni, 1)
+
             self.indeksy_domkow.append(domek.indeks)
             self.lista_wierzcholkow.append(nowy)
-
-            for indeks in range(len(self.indeksy_kopalni)):
-                if domek.preferencja != self.zloza_kopalni[indeks]: continue
-                self.lista_wierzcholkow[domek.indeks].dodaj_polaczenie(self.indeksy_kopalni[indeks], 1)
 
     def __str__(self):
         wierzcholki = ""

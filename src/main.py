@@ -6,21 +6,19 @@ from algorytmy import przeplyw as Przeplyw
 
 
 # Przygotowanie grafu
-print("> Wczytywanie grafu z pliku")
-graf = ObslugaPlikow.wczytaj_plik_testowy(5, 0.75, 1, "../dane/test")
-# Drukarnia.pokaz_statystyki(graf)
-Drukarnia.pokaz_domki(graf)
-Drukarnia.pokaz_kopalnie(graf)
+print("> Wczytywanie miasta z pliku")
+miasto = ObslugaPlikow.wczytaj_plik_testowy(5, 0.75, 1, "../dane/test")
+# Drukarnia.pokaz_statystyki(miasto)
+Drukarnia.pokaz_domki(miasto)
+Drukarnia.pokaz_kopalnie(miasto)
 
-print("\n\n\n\n\n")
-
-dwudzielny = Przeplyw.GrafDwudzielny(graf)
-print(dwudzielny)
+print("> Tworzenie grafu dla przepływu")
+graf = Przeplyw.GrafDwudzielny(miasto)
 
 
 # Trasa Księcia
 print("> Wyznaczanie trasy Ksiecia")
-KsiazeAlgorytm.wyznacz_trase_ksiecia(graf)
+KsiazeAlgorytm.wyznacz_trase_ksiecia(miasto)
 
 
 # Najgłośniejszy krasnoludek
