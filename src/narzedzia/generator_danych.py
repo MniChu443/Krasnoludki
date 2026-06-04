@@ -1,6 +1,6 @@
 from pathlib import Path
-import generator as Generator
-import obsluga_json as ObslugaJSON
+from narzedzia import generator as Generator
+from narzedzia import obsluga_plikow as ObslugaJSON
 
 
 SCIEZKA_DANYCH = "../../dane"
@@ -37,8 +37,10 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
     print("> Wygenerowano wszystkie grafy!")
 
 
-ROZMIARY = [5, 10, 20, 50, 100, 1000]
-PROPORCJE = [0.7, 0.8, 0.9, 1]
-PERKOLACJE = [0.1, 0.3, 0.5, 0.7, 1]
+def _WYGENERUJ():
 
-wygeneruj_dane_testowe(ROZMIARY, PROPORCJE, PERKOLACJE, sciezka_katalogu("test"))
+    ROZMIARY = [5, 10, 20, 50, 100, 1000]
+    PROPORCJE = [0.7, 0.8, 0.9, 1]
+    PERKOLACJE = [0.1, 0.3, 0.5, 0.7, 1]
+
+    wygeneruj_dane_testowe(ROZMIARY, PROPORCJE, PERKOLACJE, sciezka_katalogu("test"))

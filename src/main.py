@@ -1,17 +1,19 @@
 from narzedzia import generator as Generator
-from narzedzia import obsluga_json as ObslugaJSON
+from narzedzia import obsluga_plikow as ObslugaPlikow
 from algorytmy import ksiaze_algorytm as KsiazeAlgorytm
 from narzedzia import drukarnia as Drukarnia
 from modele import klasy_grafu as KlasyGrafu
 from algorytmy.drzewo_przedzialowe import SegmentTree
 
+
 # wczytanie grafu
 
 print("> Wczytywanie grafu z pliku")
-graf = ObslugaJSON.wczytaj_plik_raw("../dane/test/test_5_90_70.txt")
+graf = ObslugaPlikow.wczytaj_plik_testowy(1000, 0.75, 1, "../dane/test")
 Drukarnia.pokaz_statystyki(graf)
 #Drukarnia.pokaz_domki(graf)
 #Drukarnia.pokaz_kopalnie(graf)
+
 
 # Wyznaczanie trasy księcia
 # kopalnie = [w for w in graf if type(w) is KlasyGrafu.Kopalnia]

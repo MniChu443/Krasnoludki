@@ -2,6 +2,9 @@ from modele import klasy_grafu as Graf
 from typing import List
 import json
 from pathlib import Path
+from os import listdir
+from os.path import isfile, join
+import random as rand
 
 
 def node_na_dict(wierzcholek: Graf.Domek | Graf.Kopalnia):
@@ -119,3 +122,32 @@ def wczytaj_plik_raw(sciezka: str):
         lista.append(string_na_node(linijka))
 
     return lista
+
+
+def wczytaj_plik_testowy(rozmiar: int, proporcja: float, perkolacja: float, sciezka: str):
+
+    pliki = [ plik for plik in listdir(sciezka) if isfile(join(sciezka, plik)) ]
+    if len(pliki) == 0: raise "wczytaj_plik_testowy(): Brak plików w \"" + sciezka + "\""
+
+    wartosci = [ nazwa.split(".")[0].split("_")[1:] for nazwa in pliki ]
+    wartosci = [ [int(w) for w in lista] for lista in wartosci ]
+
+    szukany = [rozmiar, proporcja * 100, perkolacja * 100]
+    pasujace = [ pliki[indeks] for indeks in range(len(pliki)) if wartosci[indeks] == szukany ]
+
+    if len(pasujace) == 0:
+
+        print("  wczytaj_plik_testowy(): Brak dokładnego pliku! Wczytuję najbardziej pasujący plik.")
+
+        koszty = []
+        for indeks in range(len(wartosci)):
+            koszt = abs(wartosci[indeks][0]/rozmiar - 1) * 100
+            koszt += abs(wartosci[indeks][1] - szukany[1]) + abs(wartosci[indeks][2] - szukany[2])
+            koszty.append(koszt)
+
+        minimum = min(koszty)
+        pasujace = [ pliki[indeks] for indeks in range(len(pliki)) if koszty[indeks] == minimum ]
+
+    dane = join(sciezka, rand.choice(pasujace))
+
+    return wczytaj_plik_raw(dane)
