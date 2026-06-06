@@ -1,31 +1,37 @@
 from narzedzia import obsluga_plikow as ObslugaPlikow
 from narzedzia import drukarnia as Drukarnia
+from narzedzia import czasomierz as Czas
 from algorytmy import ksiaze_algorytm as KsiazeAlgorytm
 from algorytmy import najglosniejszy_krasnolud as Krasnolud
 from algorytmy import przeplyw as Przeplyw
 
 
 # Przygotowanie grafu
-print("> Wczytywanie miasta z pliku")
-miasto = ObslugaPlikow.wczytaj_plik_testowy(5, 0.75, 1, "../dane/test")
-# Drukarnia.pokaz_statystyki(miasto)
+
+Czas.start("> Wczytywanie miasta z pliku")
+miasto = ObslugaPlikow.wczytaj_plik_testowy(10, 0.7, 1, "../dane/test")
+#miasto = ObslugaPlikow.wczytaj_plik_raw("../dane/test_0_0_0.txt")
+Czas.stop()
+
+Drukarnia.pokaz_statystyki(miasto)
 Drukarnia.pokaz_domki(miasto)
 Drukarnia.pokaz_kopalnie(miasto)
 
 print("> Tworzenie grafu dla przepływu")
-graf = Przeplyw.GrafDwudzielny(miasto)
+graf = Przeplyw.SiecPrzeplywowa(miasto)
+print(graf.PAROWANIE())
+
+def reszta():
+    # Trasa Księcia
+    print("> Wyznaczanie trasy Ksiecia")
+    KsiazeAlgorytm.wyznacz_trase_ksiecia(miasto)
 
 
-# Trasa Księcia
-print("> Wyznaczanie trasy Ksiecia")
-KsiazeAlgorytm.wyznacz_trase_ksiecia(miasto)
-
-
-# Najgłośniejszy krasnoludek
-print("> Znajdowanie najglosniejszego krasnoludka")
-glosnosci = [10, 22, 15, 30, 8, 12, 25, 18]
-lewy, prawy = 1, 4
-print(f"  Głośności krasnoludków: {glosnosci}")
-max_glosnosc, indeks = Krasnolud.najglosniejszy(lewy, prawy, glosnosci)
-print(f"  Zapytanie o przedział [{lewy}, {prawy}]: Maksymalna głośność = {max_glosnosc} (indeks {indeks}).")
+    # Najgłośniejszy krasnoludek
+    print("> Znajdowanie najglosniejszego krasnoludka")
+    glosnosci = [10, 22, 15, 30, 8, 12, 25, 18]
+    lewy, prawy = 1, 4
+    print(f"  Głośności krasnoludków: {glosnosci}")
+    max_glosnosc, indeks = Krasnolud.najglosniejszy(lewy, prawy, glosnosci)
+    print(f"  Zapytanie o przedział [{lewy}, {prawy}]: Maksymalna głośność = {max_glosnosc} (indeks {indeks}).")
 
