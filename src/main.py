@@ -1,25 +1,32 @@
 from narzedzia import obsluga_plikow as ObslugaPlikow
 from narzedzia import drukarnia as Drukarnia
-from narzedzia import czasomierz as Czas
+from narzedzia import czasomierz as Czasomierz
 from algorytmy import ksiaze_algorytm as KsiazeAlgorytm
 from algorytmy import najglosniejszy_krasnolud as Krasnolud
 from algorytmy import przeplyw as Przeplyw
 
+MainCzas = Czasomierz.Czasomierz()
 
 # Przygotowanie grafu
 
-Czas.start("> Wczytywanie miasta z pliku")
-miasto = ObslugaPlikow.wczytaj_plik_testowy(10, 0.7, 1, "../dane/test")
+MainCzas.start("> Wczytywanie miasta z pliku")
+miasto = ObslugaPlikow.wczytaj_plik_testowy(50, 0.7, 1, "../dane/test")
 #miasto = ObslugaPlikow.wczytaj_plik_raw("../dane/test_0_0_0.txt")
-Czas.stop()
+MainCzas.stop()
 
 Drukarnia.pokaz_statystyki(miasto)
-Drukarnia.pokaz_domki(miasto)
-Drukarnia.pokaz_kopalnie(miasto)
+# Drukarnia.pokaz_domki(miasto)
+# Drukarnia.pokaz_kopalnie(miasto)
 
 print("> Tworzenie grafu dla przepływu")
+
+MainCzas.start()
 graf = Przeplyw.SiecPrzeplywowa(miasto)
+MainCzas.stop("### SIEC PRZEPLYWOWA WYGENREOWANA")
+
+MainCzas.start()
 print(graf.PAROWANIE())
+MainCzas.stop("### PAROWANIE ZNALEZIONE")
 
 def reszta():
     # Trasa Księcia

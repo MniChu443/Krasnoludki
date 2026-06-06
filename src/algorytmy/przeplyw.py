@@ -1,6 +1,7 @@
 from modele import klasy_grafu as KlasyGrafu
-from narzedzia import czasomierz as Czas
+from narzedzia import czasomierz as Czasomierz
 
+Czas = Czasomierz.Czasomierz()
 
 class Polaczenie:
 
@@ -69,6 +70,7 @@ class GrafDwudzielny:
         self.zrodlo = Wierzcholek(len(miasto) + 1)
         self.graf: list[Wierzcholek] = []
 
+        self.ilosc_polaczen: int = 0
         self.polacz_budynki(miasto)
 
     def polacz_budynki(self, miasto):
@@ -79,6 +81,7 @@ class GrafDwudzielny:
         for kopalnia in miasto.kopalnie:
             nowy = Wierzcholek(kopalnia.indeks)
             nowy.dodaj_polaczenie(self.ujscie.indeks, kopalnia.pojemnosc)
+            self.ilosc_polaczen += 1
 
             graf_tymczasowy[kopalnia.indeks] = nowy
         Czas.stop()
@@ -87,13 +90,15 @@ class GrafDwudzielny:
         for domek in miasto.domki:
             nowy = Wierzcholek(domek.indeks)
             self.zrodlo.dodaj_polaczenie(domek.indeks, 1)
+            self.ilosc_polaczen += 1
 
             for kopalnia in miasto.kopalnie:
                 if domek.preferencja != kopalnia.zloze: continue
                 nowy.dodaj_polaczenie(kopalnia.indeks, 1, kopalnia.odleglosc(domek))
+                self.ilosc_polaczen += 1
 
             graf_tymczasowy[domek.indeks] = nowy
-        Czas.stop()
+        Czas.stop(f"{self.ilosc_polaczen} Wszystkich połączeń")
 
         for wierzcholek in graf_tymczasowy:
             if wierzcholek is None: raise "Błąd: Nie wczytano wszystkich budynków"
@@ -119,6 +124,7 @@ class SiecPrzeplywowa:
         self.siec_rezydualna: list[Wierzcholek] = []
 
         self.wygeneruj_siec_rezydualna()
+        self.wygeneruj_przeplyw_poczatkowy(miasto)
 
         self.ujscie = self.siec_rezydualna[self.dwudzielny.ujscie.indeks]
         self.zrodlo = self.siec_rezydualna[self.dwudzielny.zrodlo.indeks]
@@ -142,10 +148,14 @@ class SiecPrzeplywowa:
                                                                          -polaczenie.odleglosc, 0, True)
         Czas.stop()
 
-        Czas.start("  Sortowanie połączeń")
-        for wierzcholek in self.siec_rezydualna:
-            wierzcholek.polaczenia.sort( key = lambda x: x.sasiad )
-        Czas.stop()
+    def wygeneruj_przeplyw_poczatkowy(self, miasto: KlasyGrafu.Miasto):
+
+        for domek in miasto.domki:
+            return # tutaj ogarnij
+
+    def bfd_sciezka_powiekszajaca(self) -> list[int] | None:
+
+        return None
 
     def bfs_sciezka_powiekszajaca(self) -> list[int] | None:
 
