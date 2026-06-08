@@ -1,13 +1,7 @@
-#zaimplementować wyszkuiwanie w całym tekscie, a nie tylko do pierwszego znalezienia
-#zaimplementować kompresje(?)
-
-
 #funkcja zwraca indeks pierwszego znalezionego dopasowania wzorca w tekście
 #jeśli nie znaleziono dopasowania, zwraca -1
 
-def boyer_moore_iteracyjny(tekst: str, wzorzec: str):
-    while True:
-        boyer_moore()
+#algorytm sluzy do wyszkuiwania w teksie oraz do kompresji(?)
 
 def boyer_moore(tekst: str, wzorzec: str):
     dlugosc_tekstu = len(tekst)
