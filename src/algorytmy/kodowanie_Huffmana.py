@@ -1,1 +1,1 @@
-#tu bede robil kodowanie Huffmana
+#plik do algorytmu huffmana do kompresji danych
