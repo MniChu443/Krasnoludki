@@ -11,9 +11,11 @@ def sciezka_katalogu(katalog: str):
 
 def wygeneruj_i_zapisz_miasto(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH):
 
-    miasto = Generator.wygeneruj_miasto(szerokosc, wysokosc, proporcja, perkolacja)
+    chcemy_sasiadow = (szerokosc * wysokosc <= 2500)
+    miasto = Generator.wygeneruj_miasto(szerokosc, wysokosc, proporcja, perkolacja, generuj_sasiadow=chcemy_sasiadow)
     if len(miasto) == 2: return
     ObslugaJSON.zapisz_do_pliku_raw(miasto, f"{sciezka}/{nazwa}.txt")
+    ObslugaJSON.zapisz_do_pliku(miasto, f"{sciezka}/{nazwa}.json")
 
 
 def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[float], lista_perkolacji: list[float], sciezka: str = SCIEZKA_DANYCH):

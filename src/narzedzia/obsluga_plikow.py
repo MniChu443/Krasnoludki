@@ -52,6 +52,16 @@ def dict_do_node(wierzcholek: dict):
 
 def zapisz_do_pliku(miasto: KlasyGrafu.Miasto, sciezka: str):
 
+    # Automatyczne generowanie sąsiedztwa dla wizualizacji, jeśli go brakuje
+    posiada_sasiadow = any(len(domek.sasiedzi) > 0 for domek in miasto.domki)
+    if not posiada_sasiadow and len(miasto.domki) * len(miasto.kopalnie) <= 10000000:
+        from math import dist
+        for domek in miasto.domki:
+            for kopalnia in miasto.kopalnie:
+                odleglosc = dist(domek.pozycja, kopalnia.pozycja)
+                domek.dodaj_sasiada(kopalnia.indeks, odleglosc)
+                kopalnia.dodaj_sasiada(domek.indeks, odleglosc)
+
     lista = []
     for budynek in miasto:
         lista.append(node_na_dict(budynek))

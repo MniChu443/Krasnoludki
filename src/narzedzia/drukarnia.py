@@ -10,9 +10,9 @@ def wypisz_naglowek(tekst):
 
 def wypisz_podnaglowek(tekst):
     """Wypisuje podnagłówek sekcji."""
-    print(f"\n{'─' * 60}")
+    print(f"\n{'-' * 60}")
     print(f"  {tekst}")
-    print(f"{'─' * 60}")
+    print(f"{'-' * 60}")
 
 
 def formatuj_wspolrzedne(wierzcholek):
@@ -43,7 +43,7 @@ def pokaz_domki(miasto: KlasyGrafu.Miasto):
     wypisz_podnaglowek("DOMKI (preferencje krasnoludów)")
 
     print(f"{'Indeks':<8} {'Pozycja':<12} {'Preferencja':<12} {'Sąsiedzi (indeks, odległość)':<30}")
-    print(f"{'─' * 8} {'─' * 12} {'─' * 12} {'─' * 30}")
+    print(f"{'-' * 8} {'-' * 12} {'-' * 12} {'-' * 30}")
     for domek in miasto.domki:
         print(f"#{domek.indeks:<7} {formatuj_wspolrzedne(domek):<12} {domek.preferencja:<12} {wypisz_sasiadow(domek):<30}")
 
@@ -52,7 +52,7 @@ def pokaz_kopalnie(miasto: KlasyGrafu.Miasto):
     wypisz_podnaglowek("KOPALNIE (złoża surowców)")
 
     print(f"{'Indeks':<8} {'Pozycja':<12} {'Złoże':<12} {'Miejsc':<8} {'Sąsiedzi (indeks, odległość)':<30}")
-    print(f"{'─' * 8} {'─' * 12} {'─' * 12} {'─' * 8} {'─' * 30}")
+    print(f"{'-' * 8} {'-' * 12} {'-' * 12} {'-' * 8} {'-' * 30}")
 
     for kopalnia in miasto.kopalnie:
         print(f"#{kopalnia.indeks:<7} {formatuj_wspolrzedne(kopalnia):<12} {kopalnia.zloze:<12} {kopalnia.pojemnosc:<8} {wypisz_sasiadow(kopalnia):<30}")
@@ -65,9 +65,9 @@ def pokaz_otoczke(trasa: list[KlasyGrafu.Kopalnia], dlugosc: float):
     print(f"\n  Kolejne punkty trasy:")
 
     for i, kopalnia in enumerate(trasa, 1):
-        marker = " 🏁" if i == len(trasa) else ""
+        marker = " [KONIEC]" if i == len(trasa) else ""
         print(f"    {i:2}. ({kopalnia.pozycja[0]:3.0f}, {kopalnia.pozycja[1]:3.0f}){marker}")
 
-    print(f"\n  {'─' * 40}")
+    print(f"\n  {'-' * 40}")
     print(f"  Całkowita długość trasy: {dlugosc:.2f} jednostek")
-    print(f"  {'─' * 40}\n")
+    print(f"  {'-' * 40}\n")
