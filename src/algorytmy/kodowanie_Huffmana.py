@@ -1,0 +1,1 @@
+#tu bede robil kodowanie Huffmana
