@@ -4,23 +4,21 @@ from narzedzia import drukarnia as Drukarnia
 
 
 def najkrotsza_droga_ksiecia(points: list[KlasyGrafu.Kopalnia]):
-    """
-    Wyznacza otoczkę wypukłą zbioru punktów (kopalni).
-    Punkty to lista Kopalni.
-    """
+    #Andrew Algorithm/Monotone chains algorithm O(n log n)
+    
     n = len(points)
     if n <= 2:
         return points
 
-    # Sortowanie punktów według współrzędnej x (i y dla remisu)
+    #Sortujemy wszystkie punkty wzgledem osi X, gdy mamy remisy sortujemy według Y
     points.sort(key = lambda k: k.pozycja)
 
     def cross_product(o, a, b):
-        # Zwraca iloczyn wektorowy (OA x OB)
-        # > 0: skręt w lewo, < 0: skręt w prawo, 0: współliniowe
+        # iloczyn wektorowy, Jezeli wartosc jest >0 skręt w prawo, jezeli wartosc <0 skręt w lewo,
+        # a jezeli jest rowna 0 to punkty sa wspoliniowe(leżą na jednej prostej)
         return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
 
-    # Budowanie dolnej części otoczki
+    #Budujemy dolna czesc otoczki
     lower = []
     for p in points:
         while len(lower) >= 2 and cross_product(lower[-2].pozycja, lower[-1].pozycja, p.pozycja) <= 0:

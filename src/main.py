@@ -1,7 +1,7 @@
 from narzedzia import obsluga_plikow as ObslugaPlikow
 from narzedzia import drukarnia as Drukarnia
 from narzedzia import czasomierz as Czasomierz
-from algorytmy import ksiaze_algorytm as KsiazeAlgorytm
+from algorytmy import otoczka_wypukla as OtoczkaWypukla
 from algorytmy import najglosniejszy_krasnolud as Krasnolud
 from algorytmy import przeplyw as Przeplyw
 
@@ -36,8 +36,8 @@ print(pary)
 
 # Trasa Księcia
 print("> Wyznaczanie trasy Ksiecia")
-trasa = KsiazeAlgorytm.najkrotsza_droga_ksiecia(miasto.kopalnie) if miasto.kopalnie else []
-dlugosc = KsiazeAlgorytm.oblicz_dlugosc_trasy(trasa) if trasa else 0.0
+trasa = OtoczkaWypukla.najkrotsza_droga_ksiecia(miasto.kopalnie) if miasto.kopalnie else []
+dlugosc = OtoczkaWypukla.oblicz_dlugosc_trasy(trasa) if trasa else 0.0
 if trasa:
     Drukarnia.pokaz_otoczke(trasa, dlugosc)
 else:
@@ -65,7 +65,7 @@ wyniki = {
     }
 }
 
-with open("wizualizacja/wyniki.json", "w", encoding="utf-8") as f:
+with open("wizualizacja/wyniki_algorytmy.json", "w", encoding="utf-8") as f:
     json.dump(wyniki, f, ensure_ascii=False, indent=4)
-print("\n> Zapisano wyniki algorytmów do pliku wizualizacja/wyniki.json")
+print("\n> Zapisano wyniki algorytmów do pliku wizualizacja/wyniki_algorytmy.json")
 

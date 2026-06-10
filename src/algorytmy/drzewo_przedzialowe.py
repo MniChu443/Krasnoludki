@@ -1,7 +1,7 @@
 from typing import List, Tuple, Optional
 
 class SegmentTree:
-   
+   #Range Maximum Query -zapytania o przedzialy w czasie O(log n)
 
     def __init__(self, data: List[int]):
         
