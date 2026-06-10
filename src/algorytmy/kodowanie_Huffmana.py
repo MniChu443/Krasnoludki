@@ -1,5 +1,8 @@
-class NodeTree(object):
+#algorytm Huffmana - tworzy drzewo z liter wystepujacych w tekscie, dzieki któremu litery
+#mozna kodowac binarnie - najmniej pamieci zajmuja litery wystepujace najczesciej
 
+#klasa node wykorzystywana do budowy drzewa
+class NodeTree(object):
     def __init__(self, left=None, right=None):
         self.left = left
         self.right = right
@@ -10,6 +13,7 @@ class NodeTree(object):
     def __str__(self):
         return '%s_%s' % (self.left, self.right)
 
+#funkcja do budowania drzewa
 def drzewo_huffmana(node, left=True, binString=''):
     if type(node) is str:
         return {node: binString}
@@ -19,6 +23,8 @@ def drzewo_huffmana(node, left=True, binString=''):
     drzewiec.update(drzewo_huffmana(r, False, binString + '1'))
     return drzewiec
 
+#funkcja glowna, na wejsciu przyjmuje string, na wyjsciu zwraca slownik z zakodowanymi literami
+#stringa podanego na wejsciu
 def huffman(string):
     freq = {}
     for c in string:
