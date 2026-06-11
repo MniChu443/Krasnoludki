@@ -1,7 +1,7 @@
 from algorytmy import kodowanie_Huffmana as Huff
 import json
 
-
+#funkcja kompresowania uzywajaca kodowania Huffmana
 def kompresja(plik_wejsciowy, plik_wyjsciowy):
     with open(plik_wejsciowy, 'r', encoding='utf-8') as plik:
         tekst = plik.read()
@@ -20,8 +20,8 @@ def kompresja(plik_wejsciowy, plik_wyjsciowy):
     with open(plik_wyjsciowy, 'w', encoding='utf-8') as plik:
         json.dump(dane, plik, ensure_ascii=False)
 
-
-def odkoduj_plik_huffmanem(plik_wejsciowy, plik_wyjsciowy):
+#funkcja dekompresowania uzywajaca kodowania Huffmana
+def dekompresja(plik_wejsciowy, plik_wyjsciowy):
     with open(plik_wejsciowy, 'r', encoding='utf-8') as plik:
         dane = json.load(plik)
 
