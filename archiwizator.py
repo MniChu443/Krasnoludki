@@ -1,5 +1,6 @@
 from narzedzia import kompresator
 
+#trzeba dodac mozliwosc wyboru sciezki/dodac katalogi do kompresji
 opcja = input("Co zamierzasz?\n 1. Skompresowac plik\n 2. Dekompresowac plik\n 0. Wyjscie\n")
 if opcja == "1":
     plik = input("Podaj nazwe pliku do skompresowania:\n")
