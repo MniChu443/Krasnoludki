@@ -1,4 +1,4 @@
-import kompresator
+from narzedzia import kompresator
 
 opcja = input("Co zamierzasz?\n 1. Skompresowac plik\n 2. Dekompresowac plik\n 0. Wyjscie\n")
 if opcja == "1":
