@@ -1,6 +1,10 @@
 #algorytm Huffmana - tworzy drzewo z liter wystepujacych w tekscie, dzieki któremu litery
 #mozna kodowac binarnie - najmniej pamieci zajmuja litery wystepujace najczesciej
 
+from collections import Counter
+import heapq
+import itertools
+
 #klasa node wykorzystywana do budowy drzewa
 class NodeTree(object):
     def __init__(self, left=None, right=None):
@@ -33,19 +37,24 @@ def huffman(string):
         else:
             freq[c] = 1
 
-    freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+    licznik = itertools.count()
 
-    nodes = freq
+    heap = []
 
-    while len(nodes) > 1:
-        (key1, c1) = nodes[-1]
-        (key2, c2) = nodes[-2]
-        nodes = nodes[:-2]
+    for znak, czestosc in freq.items():
+        heapq.heappush(heap, (czestosc, next(licznik), znak))
+
+    while len(heap) > 1:
+        c1, _, key1 = heapq.heappop(heap)
+        c2, _, key2 = heapq.heappop(heap)
+
         node = NodeTree(key1, key2)
-        nodes.append((node, c1 + c2))
 
-        nodes = sorted(nodes, key=lambda x: x[1], reverse=True)
+        heapq.heappush(
+            heap,
+            (c1 + c2, next(licznik), node)
+        )
 
-    return drzewo_huffmana(nodes[0][0])
+    return drzewo_huffmana(heap[0][2])
 
 

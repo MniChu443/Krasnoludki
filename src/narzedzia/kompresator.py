@@ -34,9 +34,7 @@ def kompresja(plik_wejsciowy):
 
     kody = Huff.huffman(tekst)
 
-    zakodowany_tekst = ''
-    for znak in tekst:
-        zakodowany_tekst += kody[znak]
+    zakodowany_tekst = ''.join(kody[znak] for znak in tekst)
 
 
     with open(plik_wejsciowy + ".huff", 'wb') as plik:
