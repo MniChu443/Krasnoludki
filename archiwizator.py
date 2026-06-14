@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+import time
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from narzedzia import kompresator
@@ -101,8 +101,11 @@ class Aplikacja(tk.Tk):
         sciezka = os.path.join(folder, plik)
 
         try:
+            start = time.perf_counter()
             kompresator.kompresja(sciezka)
-            messagebox.showinfo("Sukces", f"Skompresowano:\n{plik}")
+            czas = time.perf_counter() - start
+
+            messagebox.showinfo("Sukces", f"Skompresowano:\n{plik}\n\nCzas: {czas:.4f} s")
         except Exception as e:
             messagebox.showerror("Błąd", f"Nie udało się skompresować pliku:\n{e}")
 
@@ -140,8 +143,11 @@ class Aplikacja(tk.Tk):
             return
 
         try:
+            start = time.perf_counter()
             kompresator.dekompresja(wyjscie, kody, paczka)
-            messagebox.showinfo("Sukces", f"Dekompresowano do:\n{wyjscie}")
+            czas = time.perf_counter() - start
+
+            messagebox.showinfo("Sukces", f"Dekompresowano do:\n{wyjscie}\n\nCzas: {czas:.4f} s")
         except Exception as e:
             messagebox.showerror("Błąd", f"Nie udało się zdekompresować pliku:\n{e}")
 
