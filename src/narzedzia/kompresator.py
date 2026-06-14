@@ -23,7 +23,7 @@ def bajty_na_bity(dane):
         bity += format(bajt, '08b')
 
     if temp:
-        bits = bity[:-temp]
+        bity = bity[:-temp]
 
     return bity
 
