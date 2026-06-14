@@ -144,10 +144,14 @@ class Aplikacja(tk.Tk):
 
         try:
             start = time.perf_counter()
-            kompresator.dekompresja(wyjscie, kody, paczka)
-            czas = time.perf_counter() - start
 
-            messagebox.showinfo("Sukces", f"Dekompresowano do:\n{wyjscie}\n\nCzas: {czas:.4f} s")
+            folder_paczki = os.path.dirname(paczka)
+            sciezka_wynikowa = os.path.join(folder_paczki, wyjscie)
+
+            kompresator.dekompresja(sciezka_wynikowa, kody, paczka)
+
+            czas = time.perf_counter() - start
+            messagebox.showinfo("Sukces", f"Dekompresowano do:\n{sciezka_wynikowa}\n\nCzas: {czas:.4f} s")
         except Exception as e:
             messagebox.showerror("Błąd", f"Nie udało się zdekompresować pliku:\n{e}")
 
