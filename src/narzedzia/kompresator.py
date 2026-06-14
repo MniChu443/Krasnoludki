@@ -41,7 +41,7 @@ def kompresja(plik_wejsciowy):
 
     with open(plik_wejsciowy + ".huff", 'wb') as plik:
         plik.write(bity_na_bajty(zakodowany_tekst))
-    with open(plik_wejsciowy + ".kody", 'w', encoding='utf-8') as plik:
+    with open(plik_wejsciowy + ".huffcode", 'w', encoding='utf-8') as plik:
         json.dump(kody, plik, ensure_ascii=False, indent=4)
 
 #funkcja dekompresowania uzywajaca kodowania Huffmana
