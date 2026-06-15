@@ -64,3 +64,35 @@ class SegmentTree:
             return left_res
         else:
             return right_res
+
+    def update(self, index: int, new_value: int):
+        """
+        Aktualizuje wartość elementu o wskazanym indeksie w czasie O(log n).
+        """
+        if index < 0 or index >= self.n:
+            raise IndexError("Indeks poza zakresem drzewa przedziałowego")
+        self._update_recursive(0, 0, self.n - 1, index, new_value)
+
+    def _update_recursive(self, node: int, start: int, end: int, index: int, new_value: int) -> Tuple[int, int]:
+        if start == end:
+            self.tree[node] = (new_value, index)
+            return self.tree[node]
+            
+        mid = (start + end) // 2
+        left_child = 2 * node + 1
+        right_child = 2 * node + 2
+        
+        if index <= mid:
+            left_res = self._update_recursive(left_child, start, mid, index, new_value)
+            right_res = self.tree[right_child]
+        else:
+            left_res = self.tree[left_child]
+            right_res = self._update_recursive(right_child, mid + 1, end, index, new_value)
+            
+        if left_res[0] >= right_res[0]:
+            self.tree[node] = left_res
+        else:
+            self.tree[node] = right_res
+            
+        return self.tree[node]
+
