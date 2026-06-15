@@ -135,7 +135,7 @@ def wczytaj_plik_raw(sciezka: str):
 
 def wczytaj_plik_testowy(rozmiar: int, proporcja: float, perkolacja: float, sciezka: str):
 
-    pliki = [ plik for plik in listdir(sciezka) if isfile(join(sciezka, plik)) ]
+    pliki = [ plik for plik in listdir(sciezka) if isfile(join(sciezka, plik)) and plik.endswith(".txt") ]
     if len(pliki) == 0: raise f"wczytaj_plik_testowy(): Brak plików w \"{sciezka}\""
 
     wartosci = [ nazwa.split(".")[0].split("_")[1:] for nazwa in pliki ]
