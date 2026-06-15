@@ -1,41 +1,26 @@
+from przeplyw import SiecPrzeplywowa
 from modele import klasy_grafu as KlasyGrafu
+from narzedzia import czasomierz as Czasomierz
 
-#funckja znajdz_najblizsza_kopalenie ma za zadanie znalezc najblizsza kopalnie dla kazdego domku
-# z uzwgleniem preferencji
-# zwraca {kopalnia: indeks_kopalni, dystans: odleglosc}
+Czas = Czasomierz.Czasomierz()
 
 def znajdz_najblizsza_kopalnie(miasto: KlasyGrafu.Miasto):
-
+    Czas.start("  Obliczanie optymalnego przypisania (Ford-Fulkerson)")
+    
+    siec = SiecPrzeplywowa(miasto)
+    pary = siec.PAROWANIE()
+    
     wynik = {}
-
-    for domek in miasto.domki:
-        pasujace_kopalnie = []
-        for k in miasto.kopalnie:
-            if k.zloze == domek.preferencja:
-                pasujace_kopalnie.append(k)
-
-        if len(pasujace_kopalnie) == 0:
-            pasujace_kopalnie = miasto.kopalnie
-
-        najlepsza_kopalnia = None
-        najlepszy_dystans = 999999999
-
-        for k in pasujace_kopalnie:
-            for sasiad in domek.sasiedzi:
-                if sasiad.indeks_sasiada == k.indeks:
-                    if sasiad.odleglosc < najlepszy_dystans:
-                        najlepszy_dystans = sasiad.odleglosc
-                        najlepsza_kopalnia = k.indeks
-
-        if najlepsza_kopalnia is None:
-            wynik[domek.indeks] = {
-                "kopalnia": None,
-                "dystans": None
-            }
-        else:
-            wynik[domek.indeks] = {
-                "kopalnia": najlepsza_kopalnia,
-                "dystans": najlepszy_dystans
-            }
-
+    kopalnie_map = {k.indeks: k for k in miasto.kopalnie}
+    
+    for d_idx, k_idx in pary:
+        domek = next(d for d in miasto.domki if d.indeks == d_idx)
+        kopalnia = kopalnie_map[k_idx]
+        wynik[d_idx] = {
+            "kopalnia": k_idx,
+            "dystans": domek.odleglosc(kopalnia)
+        }
+    
+    Czas.stop("Zakończono obliczenia parowania")
+            
     return wynik

@@ -1,3 +1,4 @@
+from __future__ import annotations
 from modele import klasy_grafu as KlasyGrafu
 from narzedzia import czasomierz as Czasomierz
 
@@ -38,7 +39,7 @@ class Wierzcholek:
                 puste += f" | {p}"
                 continue
             sasiedzi += f" | {p}"
-        if puste != "": sasiedzi += f"\n\033[90m   ↳ {puste}\033[0m"
+        if puste != "": sasiedzi += f"\n\033[90m    ↳ {puste}\033[0m"
         return f"({self.indeks:3}){sasiedzi}"
 
     def __repr__(self):
@@ -56,7 +57,7 @@ class Wierzcholek:
     def do(self, sasiad: int) -> Polaczenie:
         for polaczenie in self.polaczenia:
             if polaczenie.sasiad == sasiad: return polaczenie
-        raise f"Sąsiad nie istnieje! {self.indeks}.do({sasiad})"
+        raise Exception(f"Sąsiad nie istnieje! {self.indeks}.do({sasiad})")
 
     def dodaj_polaczenie(self, indeks: int, przepustowosc: int, odleglosc: float = 0, przeplyw: int = 0, wsteczna: bool = False):
         self.polaczenia.append(Polaczenie(indeks, przepustowosc, odleglosc, przeplyw, wsteczna))
@@ -93,15 +94,16 @@ class GrafDwudzielny:
             self.ilosc_polaczen += 1
 
             for kopalnia in miasto.kopalnie:
-                if domek.preferencja != kopalnia.zloze: continue
-                nowy.dodaj_polaczenie(kopalnia.indeks, 1, kopalnia.odleglosc(domek))
+                d = kopalnia.odleglosc(domek)
+                p = 1.0 if domek.preferencja == kopalnia.zloze else 0.2
+                nowy.dodaj_polaczenie(kopalnia.indeks, 1, d / p)
                 self.ilosc_polaczen += 1
 
             graf_tymczasowy[domek.indeks] = nowy
         Czas.stop(f"{self.ilosc_polaczen} Wszystkich połączeń")
 
         for wierzcholek in graf_tymczasowy:
-            if wierzcholek is None: raise "Błąd: Nie wczytano wszystkich budynków"
+            if wierzcholek is None: raise Exception("Błąd: Nie wczytano wszystkich budynków")
             self.graf.append(wierzcholek)
 
         self.graf.append(self.ujscie)
@@ -145,13 +147,13 @@ class SiecPrzeplywowa:
         for wierzcholek in self.dwudzielny.graf:
             for polaczenie in wierzcholek:
                 self.siec_rezydualna[polaczenie.sasiad].dodaj_polaczenie(wierzcholek.indeks, polaczenie.przepustowosc,
-                                                                         -polaczenie.odleglosc, 0, True)
+                                                                        -polaczenie.odleglosc, 0, True)
         Czas.stop()
 
     def wygeneruj_przeplyw_poczatkowy(self, miasto: KlasyGrafu.Miasto):
 
         for domek in miasto.domki:
-            return # tutaj ogarnij
+            return
 
     def bfd_sciezka_powiekszajaca(self) -> list[int] | None:
 
