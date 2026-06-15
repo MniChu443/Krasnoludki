@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm / IntelliJ project files
+.idea/
+
+TrescProjektu.txt
+
+# VS Code settings
+.vscode/
+
+# Excel temporary lock files
+~$*.xlsx
+~$*.xls
+
+# Log files
+*.log
+
+# Environments
+.env
+.venv
+env/
+venv/
