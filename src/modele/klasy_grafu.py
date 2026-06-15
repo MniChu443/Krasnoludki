@@ -1,3 +1,4 @@
+from __future__ import annotations
 from math import dist
 
 MATERIALY_TESTOWE = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO"]
