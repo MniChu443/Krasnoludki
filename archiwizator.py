@@ -9,9 +9,9 @@ class Aplikacja(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Archiwizator :)")
-        self.geometry("700x500")
+        self.geometry("700x420")
         self.resizable(False, False)
-        self.folder = tk.StringVar(value="Brak wybranego folderu")
+
         self.kompresja_plik = tk.StringVar()
         self.dek_kody = tk.StringVar()
         self.dek_paczka = tk.StringVar()
@@ -20,19 +20,12 @@ class Aplikacja(tk.Tk):
         self._buduj_interfejs()
 
     def _buduj_interfejs(self):
-        ramka_folder = ttk.LabelFrame(self, text="Folder roboczy")
-        ramka_folder.pack(fill="x", padx=10, pady=10)
-
-        ttk.Label(ramka_folder, textvariable=self.folder).pack(side="left", padx=10, pady=10)
-        ttk.Button(ramka_folder, text="Wybierz folder", command=self.wybierz_folder).pack(side="right", padx=10, pady=10)
-
         ramka_kompresja = ttk.LabelFrame(self, text="Kompresja")
         ramka_kompresja.pack(fill="x", padx=10, pady=10)
 
         ttk.Label(ramka_kompresja, text="Plik do skompresowania:").grid(row=0, column=0, padx=10, pady=8, sticky="w")
-        self.combo_kompresja = ttk.Combobox(ramka_kompresja, textvariable=self.kompresja_plik, width=50, state="readonly")
-        self.combo_kompresja.grid(row=0, column=1, padx=10, pady=8)
-        ttk.Button(ramka_kompresja, text="Odśwież listę", command=self.odswiez_pliki).grid(row=0, column=2, padx=10, pady=8)
+        ttk.Entry(ramka_kompresja, textvariable=self.kompresja_plik, width=55).grid(row=0, column=1, padx=10, pady=8)
+        ttk.Button(ramka_kompresja, text="Wybierz", command=self.wybierz_plik_kompresji).grid(row=0, column=2, padx=10, pady=8)
         ttk.Button(ramka_kompresja, text="Kompresuj", command=self.kompresuj).grid(row=1, column=1, padx=10, pady=8)
 
         ramka_dekompresja = ttk.LabelFrame(self, text="Dekompresja")
@@ -56,53 +49,30 @@ class Aplikacja(tk.Tk):
 
         self.etykieta_info = tk.Label(
             ramka_info,
-            text="Wybierz folder, a potem pliki z tego folderu.",
+            text="Wybierz plik do kompresji albo plik .huff oraz .huffcode do dekompresji.",
             anchor="w",
             justify="left"
         )
         self.etykieta_info.pack(fill="both", expand=True, padx=10, pady=10)
 
-    def wybierz_folder(self):
-        wybrany = filedialog.askdirectory(title="Wybierz folder roboczy")
-        if wybrany:
-            self.folder.set(wybrany)
-            self.odswiez_pliki()
-
-    def odswiez_pliki(self):
-        folder = self.folder.get()
-        if folder == "Brak wybranego folderu" or not os.path.isdir(folder):
-            messagebox.showwarning("Uwaga", "Najpierw wybierz folder.")
-            return
-
-        pliki = []
-        for nazwa in os.listdir(folder):
-            sciezka = os.path.join(folder, nazwa)
-            if os.path.isfile(sciezka):
-                pliki.append(nazwa)
-
-        self.combo_kompresja["values"] = pliki
-        if pliki:
-            self.combo_kompresja.current(0)
-        else:
-            self.kompresja_plik.set("")
+    def wybierz_plik_kompresji(self):
+        plik = filedialog.askopenfilename(
+            title="Wybierz plik do skompresowania",
+            filetypes=[("Wszystkie pliki", "*.*")]
+        )
+        if plik:
+            self.kompresja_plik.set(plik)
 
     def kompresuj(self):
-        folder = self.folder.get()
         plik = self.kompresja_plik.get()
 
-        if not os.path.isdir(folder):
-            messagebox.showerror("Błąd", "Najpierw wybierz folder.")
+        if not plik or not os.path.isfile(plik):
+            messagebox.showerror("Błąd", "Wybierz poprawny plik do kompresji.")
             return
-
-        if not plik:
-            messagebox.showerror("Błąd", "Wybierz plik do kompresji.")
-            return
-
-        sciezka = os.path.join(folder, plik)
 
         try:
             start = time.perf_counter()
-            kompresator.kompresja(sciezka)
+            kompresator.kompresja(plik)
             czas = time.perf_counter() - start
 
             messagebox.showinfo("Sukces", f"Skompresowano:\n{plik}\n\nCzas: {czas:.4f} s")
