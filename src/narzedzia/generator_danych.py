@@ -1,9 +1,14 @@
+import sys
 from pathlib import Path
+
+#Dodanie katalogu głównego projektu do pythona aby dynamicznie szukać ścieżek
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 from narzedzia import generator as Generator
 from narzedzia import obsluga_plikow as ObslugaJSON
 
-
-SCIEZKA_DANYCH = "../../dane"
+#Ustalenie ścieżki do katalogu z danymi
+SCIEZKA_DANYCH = str(Path(__file__).resolve().parent.parent.parent / "dane")
 
 def sciezka_katalogu(katalog: str):
     return f"{SCIEZKA_DANYCH}/{katalog}"
@@ -21,7 +26,7 @@ def wygeneruj_i_zapisz_miasto(nazwa: str, szerokosc: int, wysokosc: int, proporc
 def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[float], lista_perkolacji: list[float], sciezka: str = SCIEZKA_DANYCH):
 
     print("> Generowanie danych testowych...")
-    Path(sciezka).mkdir()
+    Path(sciezka).mkdir(parents=True, exist_ok=True)
 
     ilosc = "/" + str(len(lista_rozmiarow) * len(lista_proporcji) * len(lista_perkolacji)) + "]"
     indeks = 1
@@ -30,7 +35,7 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
         for proporcja in lista_proporcji:
             for perkolacja in lista_perkolacji:
 
-                nazwa = f"test_{str(rozmiar)}_{str(proporcja * 100).split(".")[0]}_{str(perkolacja * 100).split(".")[0]}"
+                nazwa = f"test_{str(rozmiar)}_{str(proporcja * 100).split('.')[0]}_{str(perkolacja * 100).split('.')[0]}"
                 wygeneruj_i_zapisz_miasto(nazwa, rozmiar, rozmiar, proporcja, perkolacja, sciezka)
 
                 print(f"   Wygenerowano i zapisano graf [{str(indeks)}{ilosc}")
@@ -41,8 +46,12 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
 
 def _WYGENERUJ():
 
-    ROZMIARY = [5, 10, 20, 50, 100, 1000]
-    PROPORCJE = [0.7, 0.8, 0.9, 1]
-    PERKOLACJE = [0.1, 0.3, 0.5, 0.7, 1]
+    ROZMIARY = [5, 10, 20]
+    PROPORCJE = [0.7]
+    PERKOLACJE = [0.1]
 
     wygeneruj_dane_testowe(ROZMIARY, PROPORCJE, PERKOLACJE, sciezka_katalogu("test"))
+
+
+if __name__ == "__main__":
+    _WYGENERUJ()
