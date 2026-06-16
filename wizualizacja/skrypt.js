@@ -11,6 +11,11 @@ let tryb = "mapa";
 let zoom = 1.0;
 let kx = 0;
 let ky = 0;
+
+let mapZoom = 1.0;
+let mapKx = 0;
+let mapKy = 0;
+
 let klik = false;
 let sx = 0;
 let sy = 0;
@@ -19,8 +24,21 @@ let hvr = -1;
 let sk = 60;
 let im1 = new Image();
 let im2 = new Image();
+let im3 = new Image();
+
+function sprawdzZaladowanie() {
+  if (im1.complete && im2.complete && im3.complete) {
+    wczytaj();
+  }
+}
+
+im1.onload = sprawdzZaladowanie;
+im2.onload = sprawdzZaladowanie;
+im3.onload = sprawdzZaladowanie;
+
 im1.src = "domek.png";
 im2.src = "kopalnia.png";
+im3.src = "Dekametrowiec.png";
 
 let menu = document.createElement("div");
 menu.style.position = "fixed";
@@ -39,9 +57,15 @@ function btn(tekst, t) {
   b.onclick = function () {
     tryb = t;
     hvr = -1;
-    kx = 0;
-    ky = 0;
-    zoom = 1.0;
+    if (t === "parowanie") {
+        kx = 0;
+        ky = 0;
+        zoom = 1.0;
+    } else {
+        kx = mapKx;
+        ky = mapKy;
+        zoom = mapZoom;
+    }
     rysuj();
   };
   return b;
@@ -104,12 +128,39 @@ async function wczytaj() {
       wynikiAlgorytmy.trasa_ksiecia;
     trasaKsiecia = trasa.map(dajCzystyIndeks);
   }
+
+  // Auto-centrowanie mapy
+  if (dane.length > 0) {
+    let minX = Infinity, minY = Infinity;
+    let maxX = -Infinity, maxY = -Infinity;
+    dane.forEach(function(p) {
+      if (p.x < minX) minX = p.x;
+      if (p.x > maxX) maxX = p.x;
+      if (p.y < minY) minY = p.y;
+      if (p.y > maxY) maxY = p.y;
+    });
+    let centerX = ((minX + maxX) / 2) * sk;
+    let centerY = ((minY + maxY) / 2) * sk;
+    let mapW = (maxX - minX) * sk;
+    let mapH = (maxY - minY) * sk;
+    if (mapW > 0 && mapH > 0) {
+      let zoomX = (c.width * 0.8) / mapW;
+      let zoomY = (c.height * 0.8) / mapH;
+      zoom = Math.min(zoomX, zoomY, 1.5);
+      kx = c.width / 2 - centerX * zoom;
+      ky = c.height / 2 - centerY * zoom;
+    } else {
+      zoom = 1.0;
+      kx = c.width / 2 - centerX;
+      ky = c.height / 2 - centerY;
+    }
+    mapKx = kx;
+    mapKy = ky;
+    mapZoom = zoom;
+  }
+
   rysuj();
 }
-
-im1.onload = im2.onload = function () {
-  if (im1.complete && im2.complete) wczytaj();
-};
 
 c.onmousedown = function (e) {
   klik = true;
@@ -436,6 +487,68 @@ function rysujTrase() {
     }
   });
 
+  if (wynikiAlgorytmy.dekametrowcy) {
+    // 1. Narysowanie "atakowanego odcinka"
+    let atakowany = wynikiAlgorytmy.najglosniejszy_krasnoludek;
+    if (atakowany && atakowany.przedzial) {
+        let lewy = atakowany.przedzial[0];
+        let prawy = atakowany.przedzial[1];
+        
+        ctx.beginPath();
+        for (let i = lewy; i <= prawy; i++) {
+            let d = wynikiAlgorytmy.dekametrowcy[i];
+            if (!d) continue;
+            if (i === lewy) {
+                ctx.moveTo(d.x * sk, d.y * sk);
+            } else {
+                ctx.lineTo(d.x * sk, d.y * sk);
+            }
+        }
+        ctx.strokeStyle = "rgba(255, 50, 50, 0.6)";
+        ctx.lineWidth = 15 / zoom;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        ctx.stroke();
+    }
+
+    // 2. Rysowanie strzelców (Dekametrowców)
+    wynikiAlgorytmy.dekametrowcy.forEach(function (d, i) {
+      let s = (40 / zoom) * 1.6;
+      let off = s / 2;
+      
+      let czyNajglosniejszy = (atakowany && atakowany.indeks === i);
+      
+      // Wyróżnienie wybranego strzelca
+      if (czyNajglosniejszy) {
+          ctx.beginPath();
+          ctx.arc(d.x * sk, d.y * sk, s * 0.8, 0, 2 * Math.PI);
+          ctx.fillStyle = "rgba(255, 0, 0, 0.4)";
+          ctx.fill();
+          
+          ctx.strokeStyle = "red";
+          ctx.lineWidth = 3 / zoom;
+          ctx.stroke();
+          
+          s = s * 1.3;
+          off = s / 2;
+      }
+      
+      ctx.drawImage(im3, d.x * sk - off, d.y * sk - off, s, s);
+      
+      ctx.fillStyle = "#FFA500"; // Jasnopomarańczowy
+      ctx.font = "bold " + (14 / zoom) + "px Arial";
+      ctx.textAlign = "center";
+      
+      if (czyNajglosniejszy) {
+          ctx.fillStyle = "red";
+          ctx.font = "bold " + (20 / zoom) + "px Arial";
+      }
+      
+      ctx.fillText(d.glosnosc, d.x * sk, d.y * sk - off - 4 / zoom);
+    });
+    ctx.textAlign = "left";
+  }
+
   let finalDist =
     wynikiAlgorytmy.trasa_ksiecia && wynikiAlgorytmy.trasa_ksiecia.dlugosc
       ? wynikiAlgorytmy.trasa_ksiecia.dlugosc
@@ -444,6 +557,13 @@ function rysujTrase() {
   ctx.fillStyle = "yellow";
   ctx.font = "bold 20px Arial";
   ctx.fillText("Całkowita odległość trasy: " + finalDist.toFixed(1), 20, 40);
+
+  if (wynikiAlgorytmy.najglosniejszy_krasnoludek && wynikiAlgorytmy.najglosniejszy_krasnoludek.przedzial) {
+      let n = wynikiAlgorytmy.najglosniejszy_krasnoludek;
+      ctx.fillStyle = "yellow";
+      ctx.fillText("Atakowany odcinek: [" + n.przedzial[0] + ", " + n.przedzial[1] + "]", 20, 70);
+      ctx.fillText("Najgłośniejszy krasnolud: Indeks " + n.indeks + " (Głośność: " + n.max_glosnosc + ")", 20, 100);
+  }
 }
 
 //poprawiony skrypt

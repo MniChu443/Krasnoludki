@@ -1,20 +1,24 @@
 {
     "parowanie": [
         {
-            "domek_indeks": 1,
+            "domek_indeks": 0,
             "kopalnia_indeks": 3
         },
         {
+            "domek_indeks": 1,
+            "kopalnia_indeks": 2
+        },
+        {
             "domek_indeks": 4,
-            "kopalnia_indeks": 12
+            "kopalnia_indeks": 3
         },
         {
             "domek_indeks": 5,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 20
         },
         {
             "domek_indeks": 6,
-            "kopalnia_indeks": 11
+            "kopalnia_indeks": 23
         },
         {
             "domek_indeks": 7,
@@ -22,83 +26,107 @@
         },
         {
             "domek_indeks": 8,
-            "kopalnia_indeks": 45
-        },
-        {
-            "domek_indeks": 10,
-            "kopalnia_indeks": 31
+            "kopalnia_indeks": 9
         },
         {
             "domek_indeks": 13,
-            "kopalnia_indeks": 2
-        },
-        {
-            "domek_indeks": 14,
-            "kopalnia_indeks": 23
-        },
-        {
-            "domek_indeks": 15,
-            "kopalnia_indeks": 44
-        },
-        {
-            "domek_indeks": 17,
-            "kopalnia_indeks": 33
-        },
-        {
-            "domek_indeks": 18,
-            "kopalnia_indeks": 46
-        },
-        {
-            "domek_indeks": 19,
-            "kopalnia_indeks": 9
-        },
-        {
-            "domek_indeks": 21,
-            "kopalnia_indeks": 22
-        },
-        {
-            "domek_indeks": 27,
             "kopalnia_indeks": 11
         },
         {
-            "domek_indeks": 28,
-            "kopalnia_indeks": 29
+            "domek_indeks": 14,
+            "kopalnia_indeks": 3
         },
         {
-            "domek_indeks": 30,
-            "kopalnia_indeks": 31
+            "domek_indeks": 15,
+            "kopalnia_indeks": 23
         },
         {
-            "domek_indeks": 32,
-            "kopalnia_indeks": 24
-        },
-        {
-            "domek_indeks": 35,
-            "kopalnia_indeks": 47
-        },
-        {
-            "domek_indeks": 36,
-            "kopalnia_indeks": 45
-        },
-        {
-            "domek_indeks": 37,
-            "kopalnia_indeks": 46
-        },
-        {
-            "domek_indeks": 39,
+            "domek_indeks": 16,
             "kopalnia_indeks": 9
         },
         {
+            "domek_indeks": 17,
+            "kopalnia_indeks": 10
+        },
+        {
+            "domek_indeks": 18,
+            "kopalnia_indeks": 9
+        },
+        {
+            "domek_indeks": 19,
+            "kopalnia_indeks": 22
+        },
+        {
+            "domek_indeks": 21,
+            "kopalnia_indeks": 20
+        },
+        {
+            "domek_indeks": 24,
+            "kopalnia_indeks": 25
+        },
+        {
+            "domek_indeks": 27,
+            "kopalnia_indeks": 25
+        },
+        {
+            "domek_indeks": 28,
+            "kopalnia_indeks": 20
+        },
+        {
+            "domek_indeks": 29,
+            "kopalnia_indeks": 30
+        },
+        {
+            "domek_indeks": 31,
+            "kopalnia_indeks": 44
+        },
+        {
+            "domek_indeks": 32,
+            "kopalnia_indeks": 56
+        },
+        {
+            "domek_indeks": 33,
+            "kopalnia_indeks": 34
+        },
+        {
+            "domek_indeks": 35,
+            "kopalnia_indeks": 25
+        },
+        {
+            "domek_indeks": 36,
+            "kopalnia_indeks": 39
+        },
+        {
+            "domek_indeks": 37,
+            "kopalnia_indeks": 20
+        },
+        {
+            "domek_indeks": 38,
+            "kopalnia_indeks": 30
+        },
+        {
             "domek_indeks": 40,
-            "kopalnia_indeks": 31
+            "kopalnia_indeks": 9
         },
         {
             "domek_indeks": 41,
-            "kopalnia_indeks": 31
+            "kopalnia_indeks": 50
         },
         {
             "domek_indeks": 43,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 2
+        },
+        {
+            "domek_indeks": 45,
+            "kopalnia_indeks": 30
+        },
+        {
+            "domek_indeks": 46,
+            "kopalnia_indeks": 55
+        },
+        {
+            "domek_indeks": 47,
+            "kopalnia_indeks": 23
         },
         {
             "domek_indeks": 48,
@@ -106,154 +134,150 @@
         },
         {
             "domek_indeks": 49,
-            "kopalnia_indeks": 88
+            "kopalnia_indeks": 56
         },
         {
-            "domek_indeks": 50,
-            "kopalnia_indeks": 80
+            "domek_indeks": 51,
+            "kopalnia_indeks": 2
+        },
+        {
+            "domek_indeks": 52,
+            "kopalnia_indeks": 61
         },
         {
             "domek_indeks": 53,
-            "kopalnia_indeks": 34
-        },
-        {
-            "domek_indeks": 55,
             "kopalnia_indeks": 26
         },
         {
+            "domek_indeks": 54,
+            "kopalnia_indeks": 61
+        },
+        {
             "domek_indeks": 57,
-            "kopalnia_indeks": 38
+            "kopalnia_indeks": 25
         },
         {
             "domek_indeks": 58,
-            "kopalnia_indeks": 45
+            "kopalnia_indeks": 42
         },
         {
             "domek_indeks": 59,
-            "kopalnia_indeks": 56
+            "kopalnia_indeks": 12
         },
         {
-            "domek_indeks": 61,
-            "kopalnia_indeks": 54
+            "domek_indeks": 60,
+            "kopalnia_indeks": 61
         },
         {
             "domek_indeks": 62,
-            "kopalnia_indeks": 81
+            "kopalnia_indeks": 61
         },
         {
             "domek_indeks": 63,
-            "kopalnia_indeks": 72
-        },
-        {
-            "domek_indeks": 64,
-            "kopalnia_indeks": 42
-        },
-        {
-            "domek_indeks": 66,
-            "kopalnia_indeks": 65
-        },
-        {
-            "domek_indeks": 67,
-            "kopalnia_indeks": 56
-        },
-        {
-            "domek_indeks": 68,
-            "kopalnia_indeks": 11
-        },
-        {
-            "domek_indeks": 69,
-            "kopalnia_indeks": 11
-        },
-        {
-            "domek_indeks": 70,
-            "kopalnia_indeks": 60
-        },
-        {
-            "domek_indeks": 71,
-            "kopalnia_indeks": 81
-        },
-        {
-            "domek_indeks": 74,
-            "kopalnia_indeks": 81
-        },
-        {
-            "domek_indeks": 75,
-            "kopalnia_indeks": 42
-        },
-        {
-            "domek_indeks": 76,
-            "kopalnia_indeks": 85
-        },
-        {
-            "domek_indeks": 77,
-            "kopalnia_indeks": 47
-        },
-        {
-            "domek_indeks": 78,
-            "kopalnia_indeks": 85
-        },
-        {
-            "domek_indeks": 79,
-            "kopalnia_indeks": 38
-        },
-        {
-            "domek_indeks": 84,
-            "kopalnia_indeks": 73
-        },
-        {
-            "domek_indeks": 86,
-            "kopalnia_indeks": 95
-        },
-        {
-            "domek_indeks": 87,
-            "kopalnia_indeks": 92
-        },
-        {
-            "domek_indeks": 89,
-            "kopalnia_indeks": 88
-        },
-        {
-            "domek_indeks": 91,
-            "kopalnia_indeks": 72
-        },
-        {
-            "domek_indeks": 94,
-            "kopalnia_indeks": 85
-        },
-        {
-            "domek_indeks": 96,
-            "kopalnia_indeks": 80
-        },
-        {
-            "domek_indeks": 98,
-            "kopalnia_indeks": 97
-        },
-        {
-            "domek_indeks": 99,
-            "kopalnia_indeks": 92
+            "kopalnia_indeks": 44
         }
     ],
     "trasa_ksiecia": {
         "kolejnosc_kopalni_indeksy": [
+            3,
             2,
-            11,
-            20,
-            60,
-            80,
-            92,
-            97,
-            88,
-            29,
-            9
+            9,
+            56,
+            61,
+            55,
+            39,
+            23
         ],
-        "dlugosc": 326.7605838210644
+        "dlugosc": 237.9970395065874
     },
     "najglosniejszy_krasnoludek": {
         "przedzial": [
-            1,
-            4
+            0,
+            5
         ],
-        "max_glosnosc": 30,
+        "max_glosnosc": 40,
         "indeks": 3
-    }
+    },
+    "dekametrowcy": [
+        {
+            "x": 2.0,
+            "y": 38.0,
+            "glosnosc": 14
+        },
+        {
+            "x": 8.664100588675687,
+            "y": 24.890599607549543,
+            "glosnosc": 35
+        },
+        {
+            "x": 21.527735863014694,
+            "y": 17.494452827397062,
+            "glosnosc": 21
+        },
+        {
+            "x": 36.23644599837849,
+            "y": 14.552710800324302,
+            "glosnosc": 40
+        },
+        {
+            "x": 50.945156133742294,
+            "y": 11.61096877325154,
+            "glosnosc": 5
+        },
+        {
+            "x": 65.65386626910609,
+            "y": 8.669226746178781,
+            "glosnosc": 26
+        },
+        {
+            "x": 74.51743327422685,
+            "y": 13.467915927835541,
+            "glosnosc": 6
+        },
+        {
+            "x": 75.71361160847019,
+            "y": 28.420145105877413,
+            "glosnosc": 5
+        },
+        {
+            "x": 76.90978994271354,
+            "y": 43.37237428391929,
+            "glosnosc": 37
+        },
+        {
+            "x": 77.06037145446706,
+            "y": 57.93962854553294,
+            "glosnosc": 36
+        },
+        {
+            "x": 66.45376973666885,
+            "y": 68.54623026333115,
+            "glosnosc": 13
+        },
+        {
+            "x": 53.24080422025358,
+            "y": 74.66159884902174,
+            "glosnosc": 28
+        },
+        {
+            "x": 38.723058796062546,
+            "y": 77.59818684636397,
+            "glosnosc": 23
+        },
+        {
+            "x": 23.974728858383507,
+            "y": 74.95749853455408,
+            "glosnosc": 45
+        },
+        {
+            "x": 16.30859796522626,
+            "y": 62.064460214244164,
+            "glosnosc": 17
+        },
+        {
+            "x": 8.642467072069008,
+            "y": 49.17142189393424,
+            "glosnosc": 17
+        }
+    ]
 }

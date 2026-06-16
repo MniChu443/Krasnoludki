@@ -12,8 +12,8 @@ MainCzas = Czasomierz.Czasomierz()
 # Przygotowanie grafu
 
 MainCzas.start("> Wczytywanie miasta z pliku")
-miasto = ObslugaPlikow.wczytaj_plik_testowy(3, 0.7, 1, "../dane")
-#miasto = ObslugaPlikow.wczytaj_plik_raw("../dane/test_0_0_0.txt")
+#miasto = ObslugaPlikow.wczytaj_plik_testowy(3, 0.7, 1, "../dane")
+miasto = ObslugaPlikow.wczytaj_plik_raw("dane/test_8_70_100.txt")
 MainCzas.stop()
 
 # Zapisanie miasta do pliku JSON dla wizualizacji
@@ -43,13 +43,21 @@ if trasa:
 else:
     print("  Brak kopalni - trasa niemożliwa do wyznaczenia.")
 
-# Najgłośniejszy krasnoludek
-print("> Znajdowanie najglosniejszego krasnoludka")
-glosnosci = [10, 22, 15, 30, 8, 12, 25, 18]
-lewy, prawy = 1, 4
-print(f"  Głośności krasnoludków: {glosnosci}")
-max_glosnosc, indeks = Krasnolud.najglosniejszy(lewy, prawy, glosnosci)
-print(f"  Zapytanie o przedział [{lewy}, {prawy}]: Maksymalna głośność = {max_glosnosc} (indeks {indeks}).")
+# Najgłośniejszy krasnoludek (Dekametrowcy na otoczce)
+print("> Rozstawianie dekametrowców na otoczce")
+dekametrowcy = OtoczkaWypukla.rozstaw_na_trasie(trasa, odstep=15.0)
+
+glosnosci = [d["glosnosc"] for d in dekametrowcy]
+if glosnosci:
+    lewy = 0
+    prawy = len(glosnosci) // 3 if len(glosnosci) > 3 else len(glosnosci) - 1
+    print(f"  Rozstawiono {len(glosnosci)} dekametrowców.")
+    print(f"  Głośności: {glosnosci}")
+    max_glosnosc, indeks = Krasnolud.najglosniejszy(lewy, prawy, glosnosci)
+    print(f"  Zapytanie o przedział [{lewy}, {prawy}]: Maksymalna głośność = {max_glosnosc} (indeks {indeks}).")
+else:
+    lewy, prawy, max_glosnosc, indeks = 0, 0, 0, 0
+    print("  Brak dekametrowców (za krótka trasa).")
 
 # Zapisanie wyników algorytmów do osobnego pliku JSON
 wyniki = {
@@ -62,7 +70,8 @@ wyniki = {
         "przedzial": [lewy, prawy],
         "max_glosnosc": max_glosnosc,
         "indeks": indeks
-    }
+    },
+    "dekametrowcy": dekametrowcy
 }
 
 with open("wizualizacja/wyniki_algorytmy.json", "w", encoding="utf-8") as f:

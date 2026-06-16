@@ -1,0 +1,479 @@
+{
+    "parowanie": [
+        {
+            "domek_indeks": 0,
+            "kopalnia_indeks": 60
+        },
+        {
+            "domek_indeks": 1,
+            "kopalnia_indeks": 74
+        },
+        {
+            "domek_indeks": 2,
+            "kopalnia_indeks": 68
+        },
+        {
+            "domek_indeks": 3,
+            "kopalnia_indeks": 82
+        },
+        {
+            "domek_indeks": 4,
+            "kopalnia_indeks": 62
+        },
+        {
+            "domek_indeks": 5,
+            "kopalnia_indeks": 69
+        },
+        {
+            "domek_indeks": 6,
+            "kopalnia_indeks": 77
+        },
+        {
+            "domek_indeks": 7,
+            "kopalnia_indeks": 65
+        },
+        {
+            "domek_indeks": 8,
+            "kopalnia_indeks": 61
+        },
+        {
+            "domek_indeks": 9,
+            "kopalnia_indeks": 84
+        },
+        {
+            "domek_indeks": 10,
+            "kopalnia_indeks": 78
+        },
+        {
+            "domek_indeks": 11,
+            "kopalnia_indeks": 66
+        },
+        {
+            "domek_indeks": 12,
+            "kopalnia_indeks": 67
+        },
+        {
+            "domek_indeks": 13,
+            "kopalnia_indeks": 67
+        },
+        {
+            "domek_indeks": 14,
+            "kopalnia_indeks": 66
+        },
+        {
+            "domek_indeks": 15,
+            "kopalnia_indeks": 65
+        },
+        {
+            "domek_indeks": 16,
+            "kopalnia_indeks": 81
+        },
+        {
+            "domek_indeks": 17,
+            "kopalnia_indeks": 64
+        },
+        {
+            "domek_indeks": 18,
+            "kopalnia_indeks": 68
+        },
+        {
+            "domek_indeks": 19,
+            "kopalnia_indeks": 69
+        },
+        {
+            "domek_indeks": 20,
+            "kopalnia_indeks": 73
+        },
+        {
+            "domek_indeks": 21,
+            "kopalnia_indeks": 69
+        },
+        {
+            "domek_indeks": 22,
+            "kopalnia_indeks": 63
+        },
+        {
+            "domek_indeks": 23,
+            "kopalnia_indeks": 71
+        },
+        {
+            "domek_indeks": 24,
+            "kopalnia_indeks": 61
+        },
+        {
+            "domek_indeks": 25,
+            "kopalnia_indeks": 63
+        },
+        {
+            "domek_indeks": 26,
+            "kopalnia_indeks": 72
+        },
+        {
+            "domek_indeks": 27,
+            "kopalnia_indeks": 70
+        },
+        {
+            "domek_indeks": 28,
+            "kopalnia_indeks": 60
+        },
+        {
+            "domek_indeks": 29,
+            "kopalnia_indeks": 75
+        },
+        {
+            "domek_indeks": 30,
+            "kopalnia_indeks": 74
+        },
+        {
+            "domek_indeks": 31,
+            "kopalnia_indeks": 81
+        },
+        {
+            "domek_indeks": 32,
+            "kopalnia_indeks": 84
+        },
+        {
+            "domek_indeks": 33,
+            "kopalnia_indeks": 67
+        },
+        {
+            "domek_indeks": 34,
+            "kopalnia_indeks": 82
+        },
+        {
+            "domek_indeks": 35,
+            "kopalnia_indeks": 77
+        },
+        {
+            "domek_indeks": 36,
+            "kopalnia_indeks": 71
+        },
+        {
+            "domek_indeks": 37,
+            "kopalnia_indeks": 75
+        },
+        {
+            "domek_indeks": 38,
+            "kopalnia_indeks": 80
+        },
+        {
+            "domek_indeks": 39,
+            "kopalnia_indeks": 63
+        },
+        {
+            "domek_indeks": 40,
+            "kopalnia_indeks": 79
+        },
+        {
+            "domek_indeks": 41,
+            "kopalnia_indeks": 76
+        },
+        {
+            "domek_indeks": 42,
+            "kopalnia_indeks": 64
+        },
+        {
+            "domek_indeks": 43,
+            "kopalnia_indeks": 66
+        },
+        {
+            "domek_indeks": 44,
+            "kopalnia_indeks": 60
+        },
+        {
+            "domek_indeks": 45,
+            "kopalnia_indeks": 76
+        },
+        {
+            "domek_indeks": 46,
+            "kopalnia_indeks": 61
+        },
+        {
+            "domek_indeks": 47,
+            "kopalnia_indeks": 72
+        },
+        {
+            "domek_indeks": 48,
+            "kopalnia_indeks": 68
+        },
+        {
+            "domek_indeks": 49,
+            "kopalnia_indeks": 62
+        },
+        {
+            "domek_indeks": 50,
+            "kopalnia_indeks": 80
+        },
+        {
+            "domek_indeks": 51,
+            "kopalnia_indeks": 83
+        },
+        {
+            "domek_indeks": 52,
+            "kopalnia_indeks": 64
+        },
+        {
+            "domek_indeks": 53,
+            "kopalnia_indeks": 62
+        },
+        {
+            "domek_indeks": 54,
+            "kopalnia_indeks": 83
+        },
+        {
+            "domek_indeks": 55,
+            "kopalnia_indeks": 65
+        },
+        {
+            "domek_indeks": 56,
+            "kopalnia_indeks": 79
+        },
+        {
+            "domek_indeks": 57,
+            "kopalnia_indeks": 70
+        },
+        {
+            "domek_indeks": 58,
+            "kopalnia_indeks": 78
+        },
+        {
+            "domek_indeks": 59,
+            "kopalnia_indeks": 73
+        }
+    ],
+    "trasa_ksiecia": {
+        "kolejnosc_kopalni_indeksy": [
+            80,
+            76,
+            67,
+            78,
+            70,
+            65,
+            73,
+            84,
+            60,
+            61
+        ],
+        "dlugosc": 705.6153131434263
+    },
+    "najglosniejszy_krasnoludek": {
+        "przedzial": [
+            0,
+            14
+        ],
+        "max_glosnosc": 48,
+        "indeks": 4
+    },
+    "dekametrowcy": [
+        {
+            "x": 7.0,
+            "y": 93.0,
+            "glosnosc": 46
+        },
+        {
+            "x": 8.55409126389184,
+            "y": 78.08072386663834,
+            "glosnosc": 42
+        },
+        {
+            "x": 10.108182527783681,
+            "y": 63.16144773327667,
+            "glosnosc": 35
+        },
+        {
+            "x": 12.0,
+            "y": 45.0,
+            "glosnosc": 8
+        },
+        {
+            "x": 14.465984809580359,
+            "y": 30.204091142517843,
+            "glosnosc": 48
+        },
+        {
+            "x": 18.0,
+            "y": 9.0,
+            "glosnosc": 46
+        },
+        {
+            "x": 32.87553759993283,
+            "y": 7.071689570379078,
+            "glosnosc": 23
+        },
+        {
+            "x": 47.751075199865646,
+            "y": 5.143379140758157,
+            "glosnosc": 42
+        },
+        {
+            "x": 72.0,
+            "y": 2.0,
+            "glosnosc": 27
+        },
+        {
+            "x": 86.99542961598166,
+            "y": 2.370257521382263,
+            "glosnosc": 46
+        },
+        {
+            "x": 101.99085923196333,
+            "y": 2.7405150427645264,
+            "glosnosc": 23
+        },
+        {
+            "x": 116.98628884794498,
+            "y": 3.1107725641467896,
+            "glosnosc": 42
+        },
+        {
+            "x": 131.98171846392665,
+            "y": 3.481030085529053,
+            "glosnosc": 45
+        },
+        {
+            "x": 153.0,
+            "y": 4.0,
+            "glosnosc": 18
+        },
+        {
+            "x": 167.9410896103903,
+            "y": 5.328096854256915,
+            "glosnosc": 32
+        },
+        {
+            "x": 182.88217922078059,
+            "y": 6.656193708513831,
+            "glosnosc": 32
+        },
+        {
+            "x": 198.0,
+            "y": 8.0,
+            "glosnosc": 23
+        },
+        {
+            "x": 197.70879275705514,
+            "y": 22.997173011659783,
+            "glosnosc": 15
+        },
+        {
+            "x": 197.4175855141103,
+            "y": 37.994346023319565,
+            "glosnosc": 11
+        },
+        {
+            "x": 197.12637827116544,
+            "y": 52.99151903497934,
+            "glosnosc": 49
+        },
+        {
+            "x": 196.8351710282206,
+            "y": 67.98869204663913,
+            "glosnosc": 34
+        },
+        {
+            "x": 196.54396378527574,
+            "y": 82.9858650582989,
+            "glosnosc": 26
+        },
+        {
+            "x": 196.0,
+            "y": 111.0,
+            "glosnosc": 40
+        },
+        {
+            "x": 195.15863007684118,
+            "y": 125.97638463222695,
+            "glosnosc": 43
+        },
+        {
+            "x": 194.31726015368235,
+            "y": 140.9527692644539,
+            "glosnosc": 8
+        },
+        {
+            "x": 193.47589023052356,
+            "y": 155.92915389668087,
+            "glosnosc": 14
+        },
+        {
+            "x": 192.63452030736474,
+            "y": 170.9055385289078,
+            "glosnosc": 26
+        },
+        {
+            "x": 191.0,
+            "y": 200.0,
+            "glosnosc": 9
+        },
+        {
+            "x": 176.13352647697036,
+            "y": 198.00301101929452,
+            "glosnosc": 12
+        },
+        {
+            "x": 161.26705295394075,
+            "y": 196.00602203858907,
+            "glosnosc": 33
+        },
+        {
+            "x": 146.4005794309111,
+            "y": 194.00903305788358,
+            "glosnosc": 23
+        },
+        {
+            "x": 124.0,
+            "y": 191.0,
+            "glosnosc": 37
+        },
+        {
+            "x": 109.23454795174247,
+            "y": 188.35776121241707,
+            "glosnosc": 48
+        },
+        {
+            "x": 94.46909590348496,
+            "y": 185.71552242483415,
+            "glosnosc": 19
+        },
+        {
+            "x": 79.70364385522743,
+            "y": 183.07328363725122,
+            "glosnosc": 32
+        },
+        {
+            "x": 64.93819180696991,
+            "y": 180.4310448496683,
+            "glosnosc": 38
+        },
+        {
+            "x": 50.17273975871237,
+            "y": 177.78880606208537,
+            "glosnosc": 28
+        },
+        {
+            "x": 29.0,
+            "y": 174.0,
+            "glosnosc": 49
+        },
+        {
+            "x": 25.068362749549873,
+            "y": 159.52442648697908,
+            "glosnosc": 17
+        },
+        {
+            "x": 21.136725499099743,
+            "y": 145.04885297395816,
+            "glosnosc": 17
+        },
+        {
+            "x": 17.205088248649616,
+            "y": 130.57327946093721,
+            "glosnosc": 18
+        },
+        {
+            "x": 13.273450998199488,
+            "y": 116.0977059479163,
+            "glosnosc": 18
+        }
+    ]
+}

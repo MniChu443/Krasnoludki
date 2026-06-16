@@ -1,4 +1,5 @@
 import math
+import random
 from modele import klasy_grafu as KlasyGrafu
 from narzedzia import drukarnia as Drukarnia
 
@@ -54,4 +55,41 @@ def wyznacz_trase_ksiecia(miasto: KlasyGrafu.Miasto):
         Drukarnia.pokaz_otoczke(trasa, dlugosc)
     else:
         print("  Brak kopalni - trasa niemożliwa do wyznaczenia.")
+
+def rozstaw_na_trasie(hull, odstep=15.0):
+    if len(hull) < 2:
+        return []
+
+    punkty = []
+    nastepny_cel = 0.0  # Dystans do następnego strażnika na bieżącej krawędzi
+    
+    for i in range(len(hull)):
+        p1 = hull[i].pozycja
+        p2 = hull[(i + 1) % len(hull)].pozycja
+        
+        dx = p2[0] - p1[0]
+        dy = p2[1] - p1[1]
+        dist = math.hypot(dx, dy)
+        
+        if dist == 0:
+            continue
+            
+        dystans_na_krawedzi = nastepny_cel
+        
+        while dystans_na_krawedzi <= dist:
+            t = dystans_na_krawedzi / dist
+            nx = p1[0] + t * dx
+            ny = p1[1] + t * dy
+            glosnosc = random.randint(5, 50)
+            punkty.append({
+                "x": nx,
+                "y": ny,
+                "glosnosc": glosnosc
+            })
+            dystans_na_krawedzi += odstep
+            
+        # Przenosimy brakujący dystans na następną krawędź
+        nastepny_cel = dystans_na_krawedzi - dist
+            
+    return punkty
 
