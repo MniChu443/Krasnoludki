@@ -1,0 +1,51 @@
+Skuteczność kompresji:
+	mikro dane (5658 znaków):
+		brak entropii - 5658B -> 1B - 0.018%
+		dane testowe - 5910B -> 3081B - 52.13%
+		duża entropia - 5658B -> 4670B - 82.54%
+	małe dane (240 224 znaków):
+		brak entropii - 234KB -> 1B - 0.0004%
+		dane testowe - 244KB -> 130KB - 53.28%
+		duża entropia - 234KB -> 195KB - 83.33%
+	średnie dane (2 714 422 znaków):
+		brak entropii - 2651KB -> 1B - 0.00004%
+		dane testowe - 2749KB -> 1480KB - 53.84%
+		duża entropia - 2651KB -> 2204KB - 83.14%
+	duże dane (13 925 781 znaków):
+		brak entropii - 13600KB -> 1B - 0.000007%
+		dane testowe - 14088KB -> 7565KB - 53.7%
+		duża entropia - 13600KB -> 11308KB - 83.15%
+Czasy kompresji:
+	mikro dane (5658 znaków):
+		brak entropii - 0.0025s, 0.0027s, 0.0027s - śr. 0.0026s
+		dane testowe - 0.0040s, 0.0037s, 0.0039s - śr. 0.0039s
+		duża entropia - 0.0048s, 0.0046s, 0.0047s - śr. 0.0047s
+	małe dane (240 224 znaków):
+		brak entropii - 0.0393s, 0.0386s, 0.0376s - śr. 0.0385s
+		dane testowe - 0.0672s, 0.0652s, 0.0662s - śr. 0.0662s
+		duża entropia - 0.0810s, 0.0809s, 0.0881s - śr. 0.0833s
+	średnie dane (2 714 422 znaków):
+		brak entropii - 0.3322s, 0.3294s, 0.3080s - śr. 0.3232s
+		dane testowe - 0.6380s, 0.6388s, 0.6284s - śr. 0.6351s
+		duża entropia - 0.8286s, 0.8111s, 0.8150s - śr. 0.8182s
+	duże dane (13 925 781 znaków):
+		brak entropii - 1.5265s, 1.5695s, 1.5263s - śr. 1.5408s
+		dane testowe - 3.1826s, 3.1733s, 3.1701s - śr. 3.1753s
+		duża entropia - 4.2539s, 4.1568s, 4.1752s - śr. 4.1953s
+Czasy dekompresji:
+	mikro dane (5658 znaków):
+		brak entropii - 0.0010s, 0.0010s, 0.0010s - śr. 0.001s
+		dane testowe - 0.0067s, 0.0068s, 0.0069s - śr. 0.0068s
+		duża entropia - 0.0096s, 0.0093s, 0.0092s - śr. 0.0093s
+	małe dane (240 224 znaków):
+		brak entropii - 0.0010s, 0.0013s, 0.0010s - śr. 0.0011s
+		dane testowe - 0.1525s, 0.1566s, 0.1565s - śr. 0.1552s
+		duża entropia - 0.2740s, 0.2512s, 0.2481s - śr. 0.2578s
+	średnie dane (2 714 422 znaków):
+		brak entropii - 0.0009s, 0.0009s, 0.0010s - śr. 0.0009s
+		dane testowe - 6.0552s, 6.1469s, 6.6823s - śr. 6.2948s
+		duża entropia - 14.9491s, 14.7609s, 14.9342s - śr. 14.8814
+	duże dane (13 925 781 znaków):
+		brak entropii - 0.0009s, 0.0013s, 0.0010s - śr. 0.001
+		dane testowe - 172.1761s, 173.6905s, 128.7332s
+		duża entropia - 274.2544s, 274.4375s, 269.8635s
