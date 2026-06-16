@@ -163,10 +163,12 @@ class SiecPrzeplywowa:
 
         for domek in miasto.domki:
             for kopalnia in miasto.kopalnie:
-
                 if domek.preferencja == kopalnia.zloze:
-                    if self.siec_rezydualna[kopalnia.indeks].do(self.dwudzielny.ujscie.indeks).przeplyw > 0:
+                    if self.siec_rezydualna[kopalnia.indeks].do(koniec).przeplyw > 0 and \
+                       self.siec_rezydualna[start].do(domek.indeks).przeplyw > 0:
+                        
                         self.zmniejsz_sciezke([start, domek.indeks, kopalnia.indeks, koniec], 1)
+                        break
 
     def bfs_sciezka_powiekszajaca(self) -> list[int] | None:
         """Algorytm przeszukiwania grafu wszerz generujący ścieżki powiększające"""
