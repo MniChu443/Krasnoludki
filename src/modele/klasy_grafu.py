@@ -18,7 +18,7 @@ class Sasiad:
         return str(self)
 
 
-class NodeGrafu:
+class Budynek:
     """Bazowa klasa dla budynku"""
 
     def __init__(self, indeks: int, x: float, y: float):
@@ -30,11 +30,11 @@ class NodeGrafu:
         nowy_sasiad = Sasiad(sasiad, odleglosc)
         self.sasiedzi.append(nowy_sasiad)
 
-    def odleglosc(self, node: NodeGrafu):
+    def odleglosc(self, node: Budynek):
         return dist((self.pozycja[0], self.pozycja[1]), (node.pozycja[0], node.pozycja[1]))
 
 
-class Domek(NodeGrafu):
+class Domek(Budynek):
     """Klasa domku z informacją o mieszkającym w nim krasnoludku"""
 
     def __init__(self, indeks: int, x: float, y: float, preferencja: str):
@@ -48,7 +48,7 @@ class Domek(NodeGrafu):
         return str(self)
 
 
-class Kopalnia(NodeGrafu):
+class Kopalnia(Budynek):
     """Klasa z informacjami o kopalni"""
 
     def __init__(self, indeks: int, x: int, y: int, pojemnosc: int, zloze: str):

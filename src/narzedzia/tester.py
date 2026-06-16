@@ -49,10 +49,10 @@ class Tester:
     def test_ogolny(self, naglowek: bool = False):
         """Masowo generuje testy z podanych wartości cech"""
 
-        wysokosci = [10, 15, 20, 25, 30, 35]
-        szerokosci = [20, 30]
+        wysokosci = [10]
+        szerokosci = [10]
         proporcje = [0.7]
-        materialy = [5]
+        materialy = [4]
         lista = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO", "MIEDZ", "KWARC"]
 
         with open("../../dane/dane_testowe.txt", "a") as plik:
@@ -62,7 +62,7 @@ class Tester:
                 for s in szerokosci:
                     for p in proporcje:
                         for m in materialy:
-                            self.test(w, s, p, lista[0:m], 1, plik)
+                            self.test(w, s, p, lista[0:m], 100, plik)
 
 
 if __name__ == "__main__":
