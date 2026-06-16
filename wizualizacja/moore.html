@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wyszukiwanie w Księgach Królestwa</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 30px;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+      .ramka {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 25px;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .tekst-kontener {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        padding: 10px;
+        background: #fafafa;
+        border-left: 4px solid #ccc;
+      }
+      .match {
+        background-color: #ffeb3b;
+        font-weight: bold;
+        padding: 2px 0;
+        border-radius: 2px;
+      }
+      .formularz {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #eee;
+        border-radius: 5px;
+      }
+      input {
+        padding: 8px;
+        font-size: 16px;
+        width: 300px;
+        border: 1px solid #999;
+        border-radius: 4px;
+      }
+      button {
+        padding: 8px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #wynik {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ramka">
+      <h3>Elektroniczne Księgi Królestwa Śnieżki</h3>
+
+      <div class="formularz">
+        <label>Szukaj w księgach:</label><br /><br />
+        <input type="text" id="wzorzecInput" placeholder="Wpisz frazę..." />
+        <button onclick="szukaj()">Szukaj</button>
+      </div>
+
+      <div class="tekst-kontener" id="tekstWyswietlany"></div>
+
+      <div id="wynik"></div>
+    </div>
+
+    <script>
+      const tekstGlowny = `Odkąd królewna Śnieżka wraz z księciem z bajki rządzą krasnoludkami, ich królestwo nabiera siły i rośnie. Obecnie zamieszkuje je o wiele więcej niż tylko siedmiu krasnoludków. Każdy z nich jest specjalistą w swoim fachu i w kopalniach lub wyrobiskach potrafi wydobywać różne minerały. Królewna zna każdego ze swoich poddanych i wie jakie minerały każdy z nich potrafi wydobywać. To ona decyduje o miejscu pracy każdego z krasnoludków, jest to dla niej niełatwym zadaniem. Chcąc dbać o swoich obywateli, zapewniając im dostatek, królewna zleciła badania geologiczne w swoim kraju. Dzięki temu ma informacje o położeniu poszczególnych złóż w swoim kraju i wie, jaka jest ich wydajność (ilu krasnoludków może pracować w tym miejscu). Okazuje się, że najważniejsza jest miłość do pracy, którą się wykonuje. To znaczy, że jeśli krasnoludek pracuje przy materii zgodnej z jego preferencjami, wydobędzie kruszec o stałej wartości, niezależnie czy kopie złoto, węgiel, rudę miedzi, czy inny surowiec. Królewna Śnieżka poprosiła, abyś na podstawie posiadanych przez nią informacji pomógł jej przydzielić pracę każdemu z krasnoludków.
+
+Po rozmowie z księciem okazało się, że jego ukochana bardzo dużo czasu spędza w kuchni, nadzorując gotowanie owsianki dla wygłodniałych brodaczy. Ilość potrzebnej owsianki zwiększa się, gdy krasnoludki muszą pokonać większą odległość z domu do pracy (można przyjąć, że jest to jedyny czynnik). Książę, chcąc ulżyć swojej wybrance, zmierzył i spisał odległości, pomiędzy każdym z wyrobisk i domkiem każdego z krasnoludków. Prosi, abyś uwzględnił te informacje. Przy podziale pracy chciałby, aby sumaryczna odległość, którą każdego dnia muszą pokonać krasnoludki była możliwie jak najmniejsza, przy czym nie możemy pozwolić, żeby spadła wartość produkowanych dóbr.
+
+Niestety nie jest to jedyny problem. Królewna Śnieżka po incydencie ze złą królową jest nieco drażliwa, gdy pojawia się temat jabłek. Nakazała wyciąć wszystkie jabłonie w królestwie i zabroniła spożywania owoców. Krnąbrne krasnoludki starają się jednak wzbogacić swoją dietę o pyszne renety, antonówki, cortlandy, papierówki i ligole. Szmuglują przez granice królestwa pewne ilości tych owoców. W celu egzekucji prawa, zakazującego spożywania jabłek na terenie królestwa, książę codziennie rano musi okrążyć teren, na którym znajdują się wszystkie użytkowane kopalnie. Chciałby, żeby ta codziennie pokonywana odległość była możliwie mała. Gdy i to nie przynosiło skutku, książę wzdłuż trasy swego przejazdu rozstawił dekametrowców (krasnoludki uzbrojone w łuki ustawione co określoną liczbę metrów). Mają one zapobiec przerzucaniu jabłek przez granicę. Ataki takie wciąż zdarzają się często, atakowany jest dany wielometrowy odcinek granicy, przez który leci niezliczona liczba jabłek w jednym momencie. Dekametrowcy nie mogą opuścić swojego odcinka granicy, a najskuteczniejszą obroną przed lecącymi jabłkami okazuje się salwa. Najgłośniejszy z krasnoludków atakowanej części granicy powinien wydać sekwencję poleceń: „strzały na cięciwy– naciągnąć cięciwy– strzał!”. Głos krasnoludka jest jego dumą i sprawą drażliwą, niełatwo więc przychodzi im ustalenie najgłośniejszego. Zaproponuj szybki sposób znajdowania dekametrowca z danego kawałka granicy, który winien wydać rozkazy.
+
+Jak widać, królewna i książę muszą wykonać ogrom pracy, wykorzystując skomplikowane działania. Martwią się, że ta wiedza zaginie. Pomóż im zapisać cenną wiedzę w elektronicznych księgach, oszczędzając elektroniczny papier. Zatroszcz się, żeby potomni mogli szybko wyszukiwać potrzebne informacje.`;
+
+      document.getElementById("tekstWyswietlany").innerText = tekstGlowny;
+
+      let przesuniecia = [];
+      let ostatnie_wystapienie = {};
+
+      function budujHeurystyki(wzorzec) {
+        let m = wzorzec.length;
+        ostatnie_wystapienie = {};
+        for (let k = 0; k < m; k++) {
+          ostatnie_wystapienie[wzorzec[k]] = k;
+        }
+        przesuniecia = new Array(m + 1).fill(0);
+        let granice = new Array(m + 1).fill(0);
+        let i = m;
+        let j = m + 1;
+        granice[i] = m + 1;
+        while (i > 0) {
+          while (j <= m && wzorzec[i - 1] !== wzorzec[j - 1]) {
+            if (przesuniecia[j] === 0) przesuniecia[j] = j - i;
+            j = granice[j];
+          }
+          i--;
+          j--;
+          granice[i] = j;
+        }
+        j = granice[0];
+        for (let k = 0; k <= m; k++) {
+          if (przesuniecia[k] === 0) przesuniecia[k] = j;
+          if (k === j) j = granice[j];
+        }
+      }
+
+      function boyer_moore(tekst, wzorzec) {
+        let n = tekst.length;
+        let m = wzorzec.length;
+        let p = 0;
+        let znalezione = [];
+        if (m === 0 || m > n) return [];
+        while (p <= n - m) {
+          let indeks_wzorca = m - 1;
+          while (
+            indeks_wzorca >= 0 &&
+            wzorzec[indeks_wzorca] === tekst[p + indeks_wzorca]
+          ) {
+            indeks_wzorca--;
+          }
+          if (indeks_wzorca < 0) {
+            znalezione.push(p);
+            p += przesuniecia[0] > 0 ? przesuniecia[0] : 1;
+          } else {
+            let znak_tekstu = tekst[p + indeks_wzorca];
+            let ostatni_indeks =
+              ostatnie_wystapienie[znak_tekstu] !== undefined
+                ? ostatnie_wystapienie[znak_tekstu]
+                : -1;
+            let skok = Math.max(
+              indeks_wzorca - ostatni_indeks,
+              przesuniecia[indeks_wzorca + 1],
+            );
+            p += Math.max(skok, 1);
+          }
+        }
+        return znalezione;
+      }
+
+      function szukaj() {
+        let wzorzec = document.getElementById("wzorzecInput").value;
+        let divTekst = document.getElementById("tekstWyswietlany");
+        let divWynik = document.getElementById("wynik");
+
+        if (wzorzec === "") {
+          divTekst.innerHTML = tekstGlowny;
+          divWynik.innerText = "Wpisz słowo, aby przeszukać księgi.";
+          return;
+        }
+
+        budujHeurystyki(wzorzec);
+        let indeksy = boyer_moore(tekstGlowny, wzorzec);
+
+        if (indeksy.length === 0) {
+          divTekst.innerText = tekstGlowny;
+          divWynik.innerText = "Nie odnaleziono frazy w królestwie.";
+          divWynik.style.color = "red";
+          return;
+        }
+
+        let sformatowanyHtml = "";
+        let ostatniIdx = 0;
+        let m = wzorzec.length;
+        for (let pos of indeksy) {
+          sformatowanyHtml += tekstGlowny.substring(ostatniIdx, pos);
+          sformatowanyHtml += `<span class='match'>${tekstGlowny.substring(pos, pos + m)}</span>`;
+          ostatniIdx = pos + m;
+        }
+        sformatowanyHtml += tekstGlowny.substring(ostatniIdx);
+        divTekst.innerHTML = sformatowanyHtml;
+        divWynik.innerText = `Odnaleziono ${indeksy.length} wystąpień frazy.`;
+        divWynik.style.color = "green";
+      }
+    </script>
+  </body>
+</html>
