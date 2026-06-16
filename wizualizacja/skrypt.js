@@ -445,3 +445,5 @@ function rysujTrase() {
   ctx.font = "bold 20px Arial";
   ctx.fillText("Całkowita odległość trasy: " + finalDist.toFixed(1), 20, 40);
 }
+
+//poprawiony skrypt
