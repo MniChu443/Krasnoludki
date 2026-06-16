@@ -7,6 +7,7 @@ def wygeneruj_miasto(szerokosc: int = 10, wysokosc: int = 10, proporcja: float =
     """
     Generuje graf na siatce szerokosc x wysokosc, wstawiajac jeden wierzcholek w losowym miejscu pola siatki
     proporcja: 0 - same kopalnie, 1 - same domki
+    perkolacja: 0 - brak budynków, 1 - budynek w każdym polu
     :return: Lista obiektów Kopalni i Domków
     """
 
@@ -42,15 +43,11 @@ def wygeneruj_miasto(szerokosc: int = 10, wysokosc: int = 10, proporcja: float =
     if not generuj_sasiadow:
         return miasto
 
-    """
-    TO PONIŻEJ ZOSTANIE USUNIĘTE
-    """
-
     for polacz_domek in miasto.domki:
         for polacz_kopalnie in miasto.kopalnie:
 
             # Obliczanie odległości między kopalnią i domkiem (możliwe dewiacje)
-            odleglosc = dist((polacz_domek.pozycja[0], polacz_domek.pozycja[1]), (polacz_kopalnie.pozycja[0], polacz_kopalnie.pozycja[1])) # + rand.random() * 2 - 1
+            odleglosc = dist((polacz_domek.pozycja[0], polacz_domek.pozycja[1]), (polacz_kopalnie.pozycja[0], polacz_kopalnie.pozycja[1]))
 
             polacz_domek.dodaj_sasiada(polacz_kopalnie.indeks, odleglosc)
             polacz_kopalnie.dodaj_sasiada(polacz_domek.indeks, odleglosc)

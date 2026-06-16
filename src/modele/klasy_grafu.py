@@ -5,6 +5,7 @@ MATERIALY_TESTOWE = ["ZLOTO", "DIAMENTY", "WEGIEL", "REDSTONE", "LAPIS", "ZELAZO
 
 
 class Sasiad:
+    """Klasa z informacją o innym wierzchołku"""
 
     def __init__(self, sasiad: int, odleglosc: float):
         self.indeks_sasiada = sasiad
@@ -18,6 +19,7 @@ class Sasiad:
 
 
 class NodeGrafu:
+    """Bazowa klasa dla budynku"""
 
     def __init__(self, indeks: int, x: float, y: float):
         self.indeks = indeks
@@ -33,6 +35,7 @@ class NodeGrafu:
 
 
 class Domek(NodeGrafu):
+    """Klasa domku z informacją o mieszkającym w nim krasnoludku"""
 
     def __init__(self, indeks: int, x: float, y: float, preferencja: str):
         super().__init__(indeks, x, y)
@@ -46,6 +49,7 @@ class Domek(NodeGrafu):
 
 
 class Kopalnia(NodeGrafu):
+    """Klasa z informacjami o kopalni"""
 
     def __init__(self, indeks: int, x: int, y: int, pojemnosc: int, zloze: str):
         super().__init__(indeks, x, y)
@@ -60,6 +64,7 @@ class Kopalnia(NodeGrafu):
 
 
 class Miasto:
+    """Klasa zbioru domków i kopalni z informacją o dostępnych surowcach"""
 
     def __init__(self, materialy: list[str] = None):
         self.domki: list[Domek] = []

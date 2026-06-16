@@ -12,7 +12,7 @@ MainCzas = Czasomierz.Czasomierz()
 # Przygotowanie grafu
 
 MainCzas.start("> Wczytywanie miasta z pliku")
-miasto = ObslugaPlikow.wczytaj_plik_testowy(10, 0.7, 1, "dane/test")
+miasto = ObslugaPlikow.wczytaj_plik_testowy(3, 0.7, 1, "../dane")
 #miasto = ObslugaPlikow.wczytaj_plik_raw("../dane/test_0_0_0.txt")
 MainCzas.stop()
 

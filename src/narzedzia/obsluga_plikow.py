@@ -90,9 +90,6 @@ def node_na_string(wierzcholek: KlasyGrafu.Domek | KlasyGrafu.Kopalnia):
     if isinstance(wierzcholek, KlasyGrafu.Domek): linijka += f" D {wierzcholek.preferencja} ."
     else: linijka += f" K {wierzcholek.zloze} {str(wierzcholek.pojemnosc)}"
 
-    # for sasiad in wierzcholek.sasiedzi:
-    #     linijka += " " + str(sasiad.indeks_sasiada) + " " + str(sasiad.odleglosc)
-
     return linijka + "\n"
 
 
@@ -106,9 +103,6 @@ def string_na_node(wierzcholek: str):
         node = KlasyGrafu.Domek(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), wlasciwosci[4])
     else:
         node = KlasyGrafu.Kopalnia(int(wlasciwosci[0]), int(wlasciwosci[1]), int(wlasciwosci[2]), int(wlasciwosci[5]), wlasciwosci[4])
-
-    # for i in range(6, len(wlasciwosci), 2):
-    #     node.sasiedzi.append(Graf.Sasiad(int(wlasciwosci[i]), float(wlasciwosci[i + 1])))
 
     return node
 

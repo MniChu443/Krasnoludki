@@ -3,6 +3,8 @@ from modele import klasy_grafu as KlasyGrafu
 from narzedzia import czasomierz as Czasomierz
 
 Czas = Czasomierz.Czasomierz()
+Czas.pomin = True
+DEBUG_PRINT = False
 
 class Polaczenie:
 
@@ -64,6 +66,7 @@ class Wierzcholek:
 
 
 class GrafDwudzielny:
+    """Klasa pomocnicza tworząca graf dwudzielny"""
 
     def __init__(self, miasto: KlasyGrafu.Miasto):
 
@@ -119,6 +122,7 @@ class GrafDwudzielny:
 
 
 class SiecPrzeplywowa:
+    """Klasa odpowiadająca za stworzenie sieci przepływowej i wykonania na niej algorytmów."""
 
     def __init__(self, miasto: KlasyGrafu.Miasto):
 
@@ -132,6 +136,7 @@ class SiecPrzeplywowa:
         self.zrodlo = self.siec_rezydualna[self.dwudzielny.zrodlo.indeks]
 
     def wygeneruj_siec_rezydualna(self):
+        """Tworzy sieć rezydualną dla grafu dwudzielnego"""
 
         Czas.start("  Kopiowanie wierzchołków")
         for wierzcholek in self.dwudzielny.graf:
@@ -151,15 +156,20 @@ class SiecPrzeplywowa:
         Czas.stop()
 
     def wygeneruj_przeplyw_poczatkowy(self, miasto: KlasyGrafu.Miasto):
+        """Generuje początkowe ścieżki powiększające, by zmniejszyć ilość potrzebnych BFS"""
+
+        start = self.dwudzielny.zrodlo.indeks
+        koniec = self.dwudzielny.ujscie.indeks
 
         for domek in miasto.domki:
-            return
+            for kopalnia in miasto.kopalnie:
 
-    def bfd_sciezka_powiekszajaca(self) -> list[int] | None:
-
-        return None
+                if domek.preferencja == kopalnia.zloze:
+                    if self.siec_rezydualna[kopalnia.indeks].do(self.dwudzielny.ujscie.indeks).przeplyw > 0:
+                        self.zmniejsz_sciezke([start, domek.indeks, kopalnia.indeks, koniec], 1)
 
     def bfs_sciezka_powiekszajaca(self) -> list[int] | None:
+        """Algorytm przeszukiwania grafu wszerz generujący ścieżki powiększające"""
 
         odwiedzone: list[bool] = [ False for _ in self.siec_rezydualna ]
         cofanie: list[int | None] = [ None for _ in self.siec_rezydualna ]
@@ -193,6 +203,7 @@ class SiecPrzeplywowa:
         return sciezka
 
     def mozliwy_przeplyw(self, sciezka: list[int]):
+        """Funkcja pomocnicza do znajdowania maksymalnego możliwego przepływu przez ścieżkę powiększającą"""
 
         minimum = 999999999
         for indeks in range(len(sciezka) - 1):
@@ -201,53 +212,67 @@ class SiecPrzeplywowa:
 
         return minimum
 
-    def zmniejsz_sciezke(self, sciezka: list[int]):
+    def zmniejsz_sciezke(self, sciezka: list[int], przeplyw: int = None):
+        """Funkcja zmnieniająca przepływ w sieci przepływowej"""
 
-        przeplyw = self.mozliwy_przeplyw(sciezka)
+        if przeplyw is None: przeplyw = self.mozliwy_przeplyw(sciezka)
         for indeks in range(len(sciezka) - 1):
             self.siec_rezydualna[sciezka[indeks]].do(sciezka[indeks + 1]).przeplyw -= przeplyw
             self.siec_rezydualna[sciezka[indeks + 1]].do(sciezka[indeks]).przeplyw += przeplyw
 
     def ff_maksymalny_przeplyw(self):
+        """Algorytm Forda-Fulkersona do znajdowania największego przepływu"""
 
-        print("> Wyznaczanie maksymalnego przepływu")
+        if DEBUG_PRINT: print("> Wyznaczanie maksymalnego przepływu")
         while True:
             Czas.start("  Szukanie ścieżki powiększającej")
             sciezka = self.bfs_sciezka_powiekszajaca()
             Czas.stop()
             if sciezka is None: break
-            print(f"  Znaleziono ścieżkę pomniejszającą {sciezka}")
+            if DEBUG_PRINT: print(f"  Znaleziono ścieżkę pomniejszającą {sciezka}")
             self.zmniejsz_sciezke(sciezka)
-        print("  Znaleziono maksymalny przepływ")
+        if DEBUG_PRINT: print("  Znaleziono maksymalny przepływ")
 
     def bf_ujemny_cykl(self) -> list[int] | None:
+        """Wariacja Moore'a algorytmu Bellmana-Forda wyszukujący ujemne cykle w sieci rezydualnej"""
 
         dystanse: list[float] = [ 999999999 for _ in range(len(self.siec_rezydualna)) ]
         dystanse[self.zrodlo.indeks] = 0
         rodzice: list[int] = [ -1 for _ in range(len(self.siec_rezydualna)) ]
         ujemny_cykl: int = -1
 
+        do_relaksacji = [i for i in range(len(self.siec_rezydualna))]
+        zmienione = []
+
+        # |V| pętli relaksowania (nie |V|-1, by znaleźć ujemny cykl)
         for _ in range(len(self.siec_rezydualna)):
 
             ujemny_cykl = -1
 
-            for wierzcholek in self.siec_rezydualna:
-                for polaczenie in wierzcholek:
-
+            # Relaksowanie
+            for wierzcholek in do_relaksacji:
+                for polaczenie in self.siec_rezydualna[wierzcholek]:
+                    indeks = self.siec_rezydualna[wierzcholek].indeks
                     if polaczenie.przeplyw <= 0: continue
 
-                    odleglosc: float = dystanse[wierzcholek.indeks] + wierzcholek.do(polaczenie.sasiad).odleglosc
+                    odleglosc: float = dystanse[indeks] + self.siec_rezydualna[wierzcholek].do(polaczenie.sasiad).odleglosc
                     if dystanse[polaczenie.sasiad] <= odleglosc: continue
 
-                    rodzice[polaczenie.sasiad] = wierzcholek.indeks
+                    rodzice[polaczenie.sasiad] = indeks
                     dystanse[polaczenie.sasiad] = odleglosc
                     ujemny_cykl = polaczenie.sasiad
+                    # Modyfikacja Moore'a - jeśli po relaksacji nie zmieniła się odległość, nie trzeba jeszcze raz relaksować wierzchołka
+                    if polaczenie.sasiad not in zmienione: zmienione.append(polaczenie.sasiad)
 
             if ujemny_cykl == -1: return None
+            do_relaksacji = [i for i in zmienione]
+            zmienione = []
 
+        # Upewnienie się że jesteśmy w ujemnym cyklu
         for _ in range(len(self.siec_rezydualna)):
             ujemny_cykl = rodzice[ujemny_cykl]
 
+        # Wyciągnięcie cyklu
         cykl: list[int] = [ujemny_cykl]
         while True:
             ujemny_cykl = rodzice[ujemny_cykl]
@@ -255,12 +280,12 @@ class SiecPrzeplywowa:
             if ujemny_cykl == cykl[0]: break
 
         cykl.reverse()
-
         return cykl
 
     def cc_minimalna_odleglosc(self):
+        """Algorytm Cycle Cancelling do znajdowania największego przepływu o najmniejszym koszcie"""
 
-        print("> Znajdowanie lepszej odległości")
+        if DEBUG_PRINT: print("> Znajdowanie lepszej odległości")
         while True:
             Czas.start()
             cykl = self.bf_ujemny_cykl()
@@ -271,6 +296,7 @@ class SiecPrzeplywowa:
             Czas.stop(f"  Cykl ujemny wykryty {cykl}")
 
     def przekonwertuj_przeplyw(self):
+        """Funkcja pomocnicza modyfikująca graf dwudzielny dodając przepływ z sieci rezydualnej"""
 
         for wierzcholek in self.dwudzielny.graf:
             for polaczenie in wierzcholek:
@@ -279,6 +305,7 @@ class SiecPrzeplywowa:
                     polaczenie.przeplyw = x.przeplyw
 
     def PAROWANIE(self) -> list[tuple[int, int]]:
+        """Funkcja wykorzystująca powyższe algorytmy do znalezienia najlepszego parowania krasnoludków"""
 
         self.ff_maksymalny_przeplyw()
         self.cc_minimalna_odleglosc()

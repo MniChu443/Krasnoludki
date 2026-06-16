@@ -14,13 +14,13 @@ def sciezka_katalogu(katalog: str):
     return f"{SCIEZKA_DANYCH}/{katalog}"
 
 
-def wygeneruj_i_zapisz_miasto(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH):
+def wygeneruj_i_zapisz_miasto(nazwa: str, szerokosc: int, wysokosc: int, proporcja: float, perkolacja: float, sciezka: str = SCIEZKA_DANYCH, materialy: list[str] = None):
 
-    chcemy_sasiadow = (szerokosc * wysokosc <= 2500)
-    miasto = Generator.wygeneruj_miasto(szerokosc, wysokosc, proporcja, perkolacja, generuj_sasiadow=chcemy_sasiadow)
+    chcemy_sasiadow = False #(szerokosc * wysokosc <= 2500)
+    miasto = Generator.wygeneruj_miasto(szerokosc, wysokosc, proporcja, perkolacja, materialy, chcemy_sasiadow)
     if len(miasto) == 2: return
     ObslugaJSON.zapisz_do_pliku_raw(miasto, f"{sciezka}/{nazwa}.txt")
-    ObslugaJSON.zapisz_do_pliku(miasto, f"{sciezka}/{nazwa}.json")
+    #ObslugaJSON.zapisz_do_pliku(miasto, f"{sciezka}/{nazwa}.json")
 
 
 def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[float], lista_perkolacji: list[float], sciezka: str = SCIEZKA_DANYCH):
@@ -46,11 +46,11 @@ def wygeneruj_dane_testowe(lista_rozmiarow: list[int], lista_proporcji: list[flo
 
 def _WYGENERUJ():
 
-    ROZMIARY = [5, 10, 20]
+    ROZMIARY = [8]
     PROPORCJE = [0.7]
-    PERKOLACJE = [0.1]
+    PERKOLACJE = [1]
 
-    wygeneruj_dane_testowe(ROZMIARY, PROPORCJE, PERKOLACJE, sciezka_katalogu("test"))
+    wygeneruj_dane_testowe(ROZMIARY, PROPORCJE, PERKOLACJE)
 
 
 if __name__ == "__main__":
