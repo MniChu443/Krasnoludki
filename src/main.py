@@ -13,7 +13,7 @@ MainCzas = Czasomierz.Czasomierz()
 
 MainCzas.start("> Wczytywanie miasta z pliku")
 #miasto = ObslugaPlikow.wczytaj_plik_testowy(3, 0.7, 1, "../dane")
-miasto = ObslugaPlikow.wczytaj_plik_raw("dane/test_8_70_100.txt")
+miasto = ObslugaPlikow.wczytaj_plik_raw("dane/test/test_10_70_10.txt")
 MainCzas.stop()
 
 # Zapisanie miasta do pliku JSON dla wizualizacji
@@ -54,9 +54,22 @@ if glosnosci:
     print(f"  Rozstawiono {len(glosnosci)} dekametrowców.")
     print(f"  Głośności: {glosnosci}")
     max_glosnosc, indeks = Krasnolud.najglosniejszy(lewy, prawy, glosnosci)
-    print(f"  Zapytanie o przedział [{lewy}, {prawy}]: Maksymalna głośność = {max_glosnosc} (indeks {indeks}).")
+    lewy_d = dekametrowcy[lewy]
+    prawy_d = dekametrowcy[prawy]
+    sciezka_ataku = [{"x": lewy_d["x"], "y": lewy_d["y"]}]
+    
+    # Dodajemy wierzchołki trasy (zakręty), jeśli przedział ataku przechodzi przez nie
+    krawedz_biezaca = lewy_d["krawedz"]
+    krawedz_koncowa = prawy_d["krawedz"]
+        
+    for edge in range(krawedz_biezaca, krawedz_koncowa):
+        p = trasa[(edge + 1) % len(trasa)].pozycja
+        sciezka_ataku.append({"x": p[0], "y": p[1]})
+        
+    sciezka_ataku.append({"x": prawy_d["x"], "y": prawy_d["y"]})
 else:
     lewy, prawy, max_glosnosc, indeks = 0, 0, 0, 0
+    sciezka_ataku = []
     print("  Brak dekametrowców (za krótka trasa).")
 
 # Zapisanie wyników algorytmów do osobnego pliku JSON
@@ -69,7 +82,8 @@ wyniki = {
     "najglosniejszy_krasnoludek": {
         "przedzial": [lewy, prawy],
         "max_glosnosc": max_glosnosc,
-        "indeks": indeks
+        "indeks": indeks,
+        "sciezka_ataku": sciezka_ataku
     },
     "dekametrowcy": dekametrowcy
 }

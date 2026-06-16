@@ -2,282 +2,582 @@
     "parowanie": [
         {
             "domek_indeks": 0,
-            "kopalnia_indeks": 3
+            "kopalnia_indeks": 60
         },
         {
             "domek_indeks": 1,
-            "kopalnia_indeks": 2
+            "kopalnia_indeks": 74
+        },
+        {
+            "domek_indeks": 2,
+            "kopalnia_indeks": 68
+        },
+        {
+            "domek_indeks": 3,
+            "kopalnia_indeks": 82
         },
         {
             "domek_indeks": 4,
-            "kopalnia_indeks": 3
+            "kopalnia_indeks": 62
         },
         {
             "domek_indeks": 5,
-            "kopalnia_indeks": 20
+            "kopalnia_indeks": 69
         },
         {
             "domek_indeks": 6,
-            "kopalnia_indeks": 23
+            "kopalnia_indeks": 77
         },
         {
             "domek_indeks": 7,
-            "kopalnia_indeks": 23
+            "kopalnia_indeks": 65
         },
         {
             "domek_indeks": 8,
-            "kopalnia_indeks": 9
+            "kopalnia_indeks": 61
+        },
+        {
+            "domek_indeks": 9,
+            "kopalnia_indeks": 84
+        },
+        {
+            "domek_indeks": 10,
+            "kopalnia_indeks": 78
+        },
+        {
+            "domek_indeks": 11,
+            "kopalnia_indeks": 66
+        },
+        {
+            "domek_indeks": 12,
+            "kopalnia_indeks": 67
         },
         {
             "domek_indeks": 13,
-            "kopalnia_indeks": 11
+            "kopalnia_indeks": 67
         },
         {
             "domek_indeks": 14,
-            "kopalnia_indeks": 3
+            "kopalnia_indeks": 66
         },
         {
             "domek_indeks": 15,
-            "kopalnia_indeks": 23
+            "kopalnia_indeks": 65
         },
         {
             "domek_indeks": 16,
-            "kopalnia_indeks": 9
+            "kopalnia_indeks": 81
         },
         {
             "domek_indeks": 17,
-            "kopalnia_indeks": 10
+            "kopalnia_indeks": 64
         },
         {
             "domek_indeks": 18,
-            "kopalnia_indeks": 9
+            "kopalnia_indeks": 68
         },
         {
             "domek_indeks": 19,
-            "kopalnia_indeks": 22
+            "kopalnia_indeks": 69
+        },
+        {
+            "domek_indeks": 20,
+            "kopalnia_indeks": 73
         },
         {
             "domek_indeks": 21,
-            "kopalnia_indeks": 20
+            "kopalnia_indeks": 69
+        },
+        {
+            "domek_indeks": 22,
+            "kopalnia_indeks": 63
+        },
+        {
+            "domek_indeks": 23,
+            "kopalnia_indeks": 71
         },
         {
             "domek_indeks": 24,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 61
+        },
+        {
+            "domek_indeks": 25,
+            "kopalnia_indeks": 63
+        },
+        {
+            "domek_indeks": 26,
+            "kopalnia_indeks": 72
         },
         {
             "domek_indeks": 27,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 70
         },
         {
             "domek_indeks": 28,
-            "kopalnia_indeks": 20
+            "kopalnia_indeks": 60
         },
         {
             "domek_indeks": 29,
-            "kopalnia_indeks": 30
+            "kopalnia_indeks": 75
+        },
+        {
+            "domek_indeks": 30,
+            "kopalnia_indeks": 74
         },
         {
             "domek_indeks": 31,
-            "kopalnia_indeks": 44
+            "kopalnia_indeks": 81
         },
         {
             "domek_indeks": 32,
-            "kopalnia_indeks": 56
+            "kopalnia_indeks": 84
         },
         {
             "domek_indeks": 33,
-            "kopalnia_indeks": 34
+            "kopalnia_indeks": 67
+        },
+        {
+            "domek_indeks": 34,
+            "kopalnia_indeks": 82
         },
         {
             "domek_indeks": 35,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 77
         },
         {
             "domek_indeks": 36,
-            "kopalnia_indeks": 39
+            "kopalnia_indeks": 71
         },
         {
             "domek_indeks": 37,
-            "kopalnia_indeks": 20
+            "kopalnia_indeks": 75
         },
         {
             "domek_indeks": 38,
-            "kopalnia_indeks": 30
+            "kopalnia_indeks": 80
+        },
+        {
+            "domek_indeks": 39,
+            "kopalnia_indeks": 63
         },
         {
             "domek_indeks": 40,
-            "kopalnia_indeks": 9
+            "kopalnia_indeks": 79
         },
         {
             "domek_indeks": 41,
-            "kopalnia_indeks": 50
+            "kopalnia_indeks": 76
+        },
+        {
+            "domek_indeks": 42,
+            "kopalnia_indeks": 64
         },
         {
             "domek_indeks": 43,
-            "kopalnia_indeks": 2
+            "kopalnia_indeks": 66
+        },
+        {
+            "domek_indeks": 44,
+            "kopalnia_indeks": 60
         },
         {
             "domek_indeks": 45,
-            "kopalnia_indeks": 30
+            "kopalnia_indeks": 76
         },
         {
             "domek_indeks": 46,
-            "kopalnia_indeks": 55
+            "kopalnia_indeks": 61
         },
         {
             "domek_indeks": 47,
-            "kopalnia_indeks": 23
+            "kopalnia_indeks": 72
         },
         {
             "domek_indeks": 48,
-            "kopalnia_indeks": 56
+            "kopalnia_indeks": 68
         },
         {
             "domek_indeks": 49,
-            "kopalnia_indeks": 56
+            "kopalnia_indeks": 62
+        },
+        {
+            "domek_indeks": 50,
+            "kopalnia_indeks": 80
         },
         {
             "domek_indeks": 51,
-            "kopalnia_indeks": 2
+            "kopalnia_indeks": 83
         },
         {
             "domek_indeks": 52,
-            "kopalnia_indeks": 61
+            "kopalnia_indeks": 64
         },
         {
             "domek_indeks": 53,
-            "kopalnia_indeks": 26
+            "kopalnia_indeks": 62
         },
         {
             "domek_indeks": 54,
-            "kopalnia_indeks": 61
+            "kopalnia_indeks": 83
+        },
+        {
+            "domek_indeks": 55,
+            "kopalnia_indeks": 65
+        },
+        {
+            "domek_indeks": 56,
+            "kopalnia_indeks": 79
         },
         {
             "domek_indeks": 57,
-            "kopalnia_indeks": 25
+            "kopalnia_indeks": 70
         },
         {
             "domek_indeks": 58,
-            "kopalnia_indeks": 42
+            "kopalnia_indeks": 78
         },
         {
             "domek_indeks": 59,
-            "kopalnia_indeks": 12
-        },
-        {
-            "domek_indeks": 60,
-            "kopalnia_indeks": 61
-        },
-        {
-            "domek_indeks": 62,
-            "kopalnia_indeks": 61
-        },
-        {
-            "domek_indeks": 63,
-            "kopalnia_indeks": 44
+            "kopalnia_indeks": 73
         }
     ],
     "trasa_ksiecia": {
         "kolejnosc_kopalni_indeksy": [
-            3,
-            2,
-            9,
-            56,
-            61,
-            55,
-            39,
-            23
+            80,
+            76,
+            67,
+            78,
+            70,
+            65,
+            73,
+            84,
+            60,
+            61
         ],
-        "dlugosc": 237.9970395065874
+        "dlugosc": 705.6153131434263
     },
     "najglosniejszy_krasnoludek": {
         "przedzial": [
             0,
-            5
+            16
         ],
-        "max_glosnosc": 40,
-        "indeks": 3
+        "max_glosnosc": 49,
+        "indeks": 9,
+        "sciezka_ataku": [
+            {
+                "x": 7.0,
+                "y": 93.0
+            },
+            {
+                "x": 12,
+                "y": 45
+            },
+            {
+                "x": 18,
+                "y": 9
+            },
+            {
+                "x": 72,
+                "y": 2
+            },
+            {
+                "x": 153,
+                "y": 4
+            },
+            {
+                "x": 172.68957667943204,
+                "y": 5.750184593727292
+            }
+        ]
     },
     "dekametrowcy": [
         {
-            "x": 2.0,
-            "y": 38.0,
-            "glosnosc": 14
+            "x": 7.0,
+            "y": 93.0,
+            "glosnosc": 19,
+            "krawedz": 0
         },
         {
-            "x": 8.664100588675687,
-            "y": 24.890599607549543,
-            "glosnosc": 35
+            "x": 8.55409126389184,
+            "y": 78.08072386663834,
+            "glosnosc": 30,
+            "krawedz": 0
         },
         {
-            "x": 21.527735863014694,
-            "y": 17.494452827397062,
-            "glosnosc": 21
+            "x": 10.108182527783681,
+            "y": 63.16144773327667,
+            "glosnosc": 47,
+            "krawedz": 0
         },
         {
-            "x": 36.23644599837849,
-            "y": 14.552710800324302,
-            "glosnosc": 40
+            "x": 11.66227379167552,
+            "y": 48.242171599915,
+            "glosnosc": 24,
+            "krawedz": 0
         },
         {
-            "x": 50.945156133742294,
-            "y": 11.61096877325154,
-            "glosnosc": 5
+            "x": 13.930091121175133,
+            "y": 33.4194532729492,
+            "glosnosc": 9,
+            "krawedz": 1
         },
         {
-            "x": 65.65386626910609,
-            "y": 8.669226746178781,
-            "glosnosc": 26
+            "x": 16.396075930755494,
+            "y": 18.623544415467045,
+            "glosnosc": 31,
+            "krawedz": 1
         },
         {
-            "x": 74.51743327422685,
-            "y": 13.467915927835541,
-            "glosnosc": 6
+            "x": 23.200201114975282,
+            "y": 8.325899855466167,
+            "glosnosc": 5,
+            "krawedz": 2
         },
         {
-            "x": 75.71361160847019,
-            "y": 28.420145105877413,
-            "glosnosc": 5
+            "x": 38.075738714908105,
+            "y": 6.397589425845245,
+            "glosnosc": 24,
+            "krawedz": 2
         },
         {
-            "x": 76.90978994271354,
-            "y": 43.37237428391929,
-            "glosnosc": 37
+            "x": 52.951276314840925,
+            "y": 4.4692789962243245,
+            "glosnosc": 45,
+            "krawedz": 2
         },
         {
-            "x": 77.06037145446706,
-            "y": 57.93962854553294,
-            "glosnosc": 36
+            "x": 67.82681391477375,
+            "y": 2.5409685666034028,
+            "glosnosc": 49,
+            "krawedz": 2
         },
         {
-            "x": 66.45376973666885,
-            "y": 68.54623026333115,
-            "glosnosc": 13
+            "x": 82.78860900227242,
+            "y": 2.266385407463517,
+            "glosnosc": 45,
+            "krawedz": 3
         },
         {
-            "x": 53.24080422025358,
-            "y": 74.66159884902174,
-            "glosnosc": 28
+            "x": 97.78403861825409,
+            "y": 2.63664292884578,
+            "glosnosc": 7,
+            "krawedz": 3
         },
         {
-            "x": 38.723058796062546,
-            "y": 77.59818684636397,
-            "glosnosc": 23
+            "x": 112.77946823423575,
+            "y": 3.006900450228043,
+            "glosnosc": 32,
+            "krawedz": 3
         },
         {
-            "x": 23.974728858383507,
-            "y": 74.95749853455408,
-            "glosnosc": 45
+            "x": 127.7748978502174,
+            "y": 3.3771579716103064,
+            "glosnosc": 48,
+            "krawedz": 3
         },
         {
-            "x": 16.30859796522626,
-            "y": 62.064460214244164,
-            "glosnosc": 17
+            "x": 142.77032746619906,
+            "y": 3.7474154929925696,
+            "glosnosc": 9,
+            "krawedz": 3
         },
         {
-            "x": 8.642467072069008,
-            "y": 49.17142189393424,
-            "glosnosc": 17
+            "x": 157.74848706904174,
+            "y": 4.422087739470377,
+            "glosnosc": 37,
+            "krawedz": 4
+        },
+        {
+            "x": 172.68957667943204,
+            "y": 5.750184593727292,
+            "glosnosc": 14,
+            "krawedz": 4
+        },
+        {
+            "x": 187.63066628982233,
+            "y": 7.0782814479842076,
+            "glosnosc": 11,
+            "krawedz": 4
+        },
+        {
+            "x": 197.91089482321343,
+            "y": 12.588916604508217,
+            "glosnosc": 46,
+            "krawedz": 5
+        },
+        {
+            "x": 197.6196875802686,
+            "y": 27.586089616168,
+            "glosnosc": 31,
+            "krawedz": 5
+        },
+        {
+            "x": 197.32848033732373,
+            "y": 42.58326262782778,
+            "glosnosc": 49,
+            "krawedz": 5
+        },
+        {
+            "x": 197.0372730943789,
+            "y": 57.58043563948756,
+            "glosnosc": 11,
+            "krawedz": 5
+        },
+        {
+            "x": 196.74606585143403,
+            "y": 72.57760865114734,
+            "glosnosc": 15,
+            "krawedz": 5
+        },
+        {
+            "x": 196.4548586084892,
+            "y": 87.57478166280713,
+            "glosnosc": 16,
+            "krawedz": 5
+        },
+        {
+            "x": 196.16365136554433,
+            "y": 102.57195467446691,
+            "glosnosc": 15,
+            "krawedz": 5
+        },
+        {
+            "x": 195.63145944557687,
+            "y": 117.56002186873192,
+            "glosnosc": 20,
+            "krawedz": 6
+        },
+        {
+            "x": 194.79008952241804,
+            "y": 132.5364065009589,
+            "glosnosc": 38,
+            "krawedz": 6
+        },
+        {
+            "x": 193.94871959925922,
+            "y": 147.51279113318583,
+            "glosnosc": 43,
+            "krawedz": 6
+        },
+        {
+            "x": 193.1073496761004,
+            "y": 162.4891757654128,
+            "glosnosc": 21,
+            "krawedz": 6
+        },
+        {
+            "x": 192.26597975294158,
+            "y": 177.46556039763976,
+            "glosnosc": 38,
+            "krawedz": 6
+        },
+        {
+            "x": 191.42460982978278,
+            "y": 192.4419450298667,
+            "glosnosc": 17,
+            "krawedz": 6
+        },
+        {
+            "x": 183.63611317318166,
+            "y": 199.01082117251693,
+            "glosnosc": 13,
+            "krawedz": 7
+        },
+        {
+            "x": 168.76963965015204,
+            "y": 197.01383219181147,
+            "glosnosc": 5,
+            "krawedz": 7
+        },
+        {
+            "x": 153.9031661271224,
+            "y": 195.016843211106,
+            "glosnosc": 13,
+            "krawedz": 7
+        },
+        {
+            "x": 139.03669260409276,
+            "y": 193.0198542304005,
+            "glosnosc": 43,
+            "krawedz": 7
+        },
+        {
+            "x": 124.17021908106315,
+            "y": 191.02286524969506,
+            "glosnosc": 46,
+            "krawedz": 7
+        },
+        {
+            "x": 109.40361035078708,
+            "y": 188.38801448382506,
+            "glosnosc": 35,
+            "krawedz": 8
+        },
+        {
+            "x": 94.63815830252955,
+            "y": 185.74577569624213,
+            "glosnosc": 48,
+            "krawedz": 8
+        },
+        {
+            "x": 79.87270625427203,
+            "y": 183.1035369086592,
+            "glosnosc": 40,
+            "krawedz": 8
+        },
+        {
+            "x": 65.10725420601449,
+            "y": 180.46129812107628,
+            "glosnosc": 19,
+            "krawedz": 8
+        },
+        {
+            "x": 50.34180215775697,
+            "y": 177.81905933349336,
+            "glosnosc": 41,
+            "krawedz": 8
+        },
+        {
+            "x": 35.576350109499444,
+            "y": 175.17682054591043,
+            "glosnosc": 16,
+            "krawedz": 8
+        },
+        {
+            "x": 26.81946545727639,
+            "y": 165.9716682745176,
+            "glosnosc": 21,
+            "krawedz": 9
+        },
+        {
+            "x": 22.887828206826264,
+            "y": 151.4960947614967,
+            "glosnosc": 39,
+            "krawedz": 9
+        },
+        {
+            "x": 18.956190956376133,
+            "y": 137.02052124847577,
+            "glosnosc": 12,
+            "krawedz": 9
+        },
+        {
+            "x": 15.024553705926007,
+            "y": 122.54494773545484,
+            "glosnosc": 19,
+            "krawedz": 9
+        },
+        {
+            "x": 11.09291645547588,
+            "y": 108.06937422243392,
+            "glosnosc": 8,
+            "krawedz": 9
+        },
+        {
+            "x": 7.16127920502575,
+            "y": 93.59380070941299,
+            "glosnosc": 44,
+            "krawedz": 9
         }
     ]
 }

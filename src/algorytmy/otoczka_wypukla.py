@@ -84,7 +84,8 @@ def rozstaw_na_trasie(hull, odstep=15.0):
             punkty.append({
                 "x": nx,
                 "y": ny,
-                "glosnosc": glosnosc
+                "glosnosc": glosnosc,
+                "krawedz": i
             })
             dystans_na_krawedzi += odstep
             

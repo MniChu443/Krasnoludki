@@ -61,7 +61,53 @@ def uruchom_demo():
     print(f"   - Calkowita dlugosc trasy (obwod): {GREEN}{obwod:.2f} jednostek{RESET}")
     print(f"   - Odrzucone kopalnie wewnetrzne (bezpiecznie schowane): {RED}{wew_str}{RESET}")
     print(f"   - Odrzucone punkty wspolliniowe (optymalizacja odcinkow prostych): {RED}{wsp_str}{RESET}")
+    
+    zapisz_wizualizacje(kopalnie, otoczka, obwod)
 
+def zapisz_wizualizacje(kopalnie, otoczka, obwod):
+    import json
+    
+    miasto = []
+    
+    skala = 30
+    przesuniecie = 20
+    
+    for k in kopalnie:
+        x = k.pozycja[0] * skala + przesuniecie
+        y = k.pozycja[1] * skala + przesuniecie
+        
+        miasto.append({
+            "indeks": k.indeks,
+            "pozycja": [x, y],
+            "x": x,
+            "y": y,
+            "typ": "Kopalnia",
+            "pojemnosc": k.pojemnosc,
+            "zloze": k.zloze,
+            "sasiedzi": []
+        })
+
+    wyniki = {
+        "parowanie": [],
+        "trasa_ksiecia": {
+            "kolejnosc_kopalni_indeksy": [k.indeks for k in otoczka],
+            "dlugosc": obwod
+        },
+        "najglosniejszy_krasnoludek": None,
+        "dekametrowcy": []
+    }
+    
+    katalog_glowny = Path(__file__).resolve().parent.parent.parent
+    wizualizacja_dir = katalog_glowny / "wizualizacja"
+    
+    with open(wizualizacja_dir / "dane.json", "w", encoding="utf-8") as f:
+        json.dump(miasto, f, ensure_ascii=False, indent=4)
+        
+    with open(wizualizacja_dir / "wyniki_algorytmy.json", "w", encoding="utf-8") as f:
+        json.dump(wyniki, f, ensure_ascii=False, indent=4)
+        
+    print(f"\n{CYAN}--- ZAPISANO WIZUALIZACJE ---{RESET}")
+    print("Otwórz lub odśwież (Ctrl+F5) 'wizualizacja/index.html' w przeglądarce, aby zobaczyć otoczkę z dema!")
 
 if __name__ == "__main__":
     uruchom_demo()

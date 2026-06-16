@@ -488,21 +488,14 @@ function rysujTrase() {
   });
 
   if (wynikiAlgorytmy.dekametrowcy) {
-    // 1. Narysowanie "atakowanego odcinka"
+    // 1. Narysowanie "atakowanego odcinka" wzdłuż trasy Księcia
     let atakowany = wynikiAlgorytmy.najglosniejszy_krasnoludek;
-    if (atakowany && atakowany.przedzial) {
-        let lewy = atakowany.przedzial[0];
-        let prawy = atakowany.przedzial[1];
-        
+    if (atakowany && atakowany.sciezka_ataku && atakowany.sciezka_ataku.length > 0) {
         ctx.beginPath();
-        for (let i = lewy; i <= prawy; i++) {
-            let d = wynikiAlgorytmy.dekametrowcy[i];
-            if (!d) continue;
-            if (i === lewy) {
-                ctx.moveTo(d.x * sk, d.y * sk);
-            } else {
-                ctx.lineTo(d.x * sk, d.y * sk);
-            }
+        let sciezka = atakowany.sciezka_ataku;
+        ctx.moveTo(sciezka[0].x * sk, sciezka[0].y * sk);
+        for (let i = 1; i < sciezka.length; i++) {
+            ctx.lineTo(sciezka[i].x * sk, sciezka[i].y * sk);
         }
         ctx.strokeStyle = "rgba(255, 50, 50, 0.6)";
         ctx.lineWidth = 15 / zoom;
