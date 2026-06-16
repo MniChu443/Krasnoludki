@@ -488,41 +488,90 @@ function rysujTrase() {
   });
 
   if (wynikiAlgorytmy.dekametrowcy) {
-    // 1. Narysowanie "atakowanego odcinka" wzdłuż trasy Księcia
-    let atakowany = wynikiAlgorytmy.najglosniejszy_krasnoludek;
-    if (atakowany && atakowany.sciezka_ataku && atakowany.sciezka_ataku.length > 0) {
-        ctx.beginPath();
-        let sciezka = atakowany.sciezka_ataku;
-        ctx.moveTo(sciezka[0].x * sk, sciezka[0].y * sk);
-        for (let i = 1; i < sciezka.length; i++) {
-            ctx.lineTo(sciezka[i].x * sk, sciezka[i].y * sk);
+    // Normalizacja do tablicy zapytań (dla wsparcia wielu zapytań z dema)
+    let zapytania = [];
+    if (wynikiAlgorytmy.najglosniejszy_krasnoludek) {
+        if (Array.isArray(wynikiAlgorytmy.najglosniejszy_krasnoludek)) {
+            zapytania = wynikiAlgorytmy.najglosniejszy_krasnoludek;
+        } else {
+            zapytania = [wynikiAlgorytmy.najglosniejszy_krasnoludek];
         }
-        ctx.strokeStyle = "rgba(255, 50, 50, 0.6)";
-        ctx.lineWidth = 15 / zoom;
-        ctx.lineJoin = "round";
-        ctx.lineCap = "round";
-        ctx.stroke();
     }
+    
+    const kolorySciezek = [
+        "rgba(255, 50, 50, 0.8)",    // Czerwony
+        "rgba(50, 200, 50, 0.8)",    // Zielony
+        "rgba(50, 100, 255, 0.8)",   // Niebieski
+        "rgba(255, 150, 50, 0.8)",   // Pomarańczowy
+        "rgba(200, 50, 255, 0.8)"    // Fioletowy
+    ];
+    
+    const koloryWlasciwe = [
+        "red", "green", "blue", "orange", "purple"
+    ];
+
+    // 1. Narysowanie "atakowanych odcinków"
+    zapytania.forEach((atakowany, idx) => {
+        if (atakowany && atakowany.sciezka_ataku && atakowany.sciezka_ataku.length > 0) {
+            // Przesunięcie wyśrodkowane wokół zera
+            let offset_y = ((idx - (zapytania.length - 1)/2) * 26) / zoom; 
+            
+            ctx.beginPath();
+            let sciezka = atakowany.sciezka_ataku;
+            ctx.moveTo(sciezka[0].x * sk, sciezka[0].y * sk + offset_y);
+            for (let i = 1; i < sciezka.length; i++) {
+                ctx.lineTo(sciezka[i].x * sk, sciezka[i].y * sk + offset_y);
+            }
+            ctx.strokeStyle = kolorySciezek[idx % kolorySciezek.length];
+            ctx.lineWidth = 14 / zoom;
+            ctx.lineJoin = "round";
+            ctx.lineCap = "round";
+            ctx.stroke();
+            
+            // Podpis nad środkiem linii
+            let srodek = Math.floor(sciezka.length / 2);
+            let srodek_x = sciezka[srodek].x * sk;
+            let srodek_y = sciezka[srodek].y * sk + offset_y - (8 / zoom);
+            
+            // W razie parzystej liczby elementów wyśrodkuj między dwoma punktami
+            if (sciezka.length > 1 && sciezka.length % 2 === 0) {
+                srodek_x = (sciezka[srodek - 1].x * sk + sciezka[srodek].x * sk) / 2;
+            }
+            
+            ctx.fillStyle = koloryWlasciwe[idx % koloryWlasciwe.length];
+            ctx.font = "bold " + (16 / zoom) + "px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("[" + atakowany.przedzial[0] + ", " + atakowany.przedzial[1] + "] Max: " + atakowany.max_glosnosc, srodek_x, srodek_y);
+        }
+    });
 
     // 2. Rysowanie strzelców (Dekametrowców)
     wynikiAlgorytmy.dekametrowcy.forEach(function (d, i) {
       let s = (40 / zoom) * 1.6;
       let off = s / 2;
       
-      let czyNajglosniejszy = (atakowany && atakowany.indeks === i);
+      let zwyciestwa = [];
+      zapytania.forEach((atakowany, idx) => {
+          if (atakowany && atakowany.indeks === i) {
+              zwyciestwa.push(idx);
+          }
+      });
       
-      // Wyróżnienie wybranego strzelca
-      if (czyNajglosniejszy) {
-          ctx.beginPath();
-          ctx.arc(d.x * sk, d.y * sk, s * 0.8, 0, 2 * Math.PI);
-          ctx.fillStyle = "rgba(255, 0, 0, 0.4)";
-          ctx.fill();
+      // Wyróżnienie wybranego strzelca (wieloma okręgami jeśli wygrał w wielu zapytaniach)
+      if (zwyciestwa.length > 0) {
+          zwyciestwa.forEach((z_idx, ring) => {
+              let promien = s * 0.8 + (ring * 16 / zoom);
+              ctx.beginPath();
+              ctx.arc(d.x * sk, d.y * sk, promien, 0, 2 * Math.PI);
+              ctx.fillStyle = "rgba(255, 255, 255, 0.2)"; // Delikatne tło
+              ctx.fill();
+              
+              ctx.strokeStyle = koloryWlasciwe[z_idx % koloryWlasciwe.length];
+              ctx.lineWidth = 6 / zoom;
+              ctx.stroke();
+          });
           
-          ctx.strokeStyle = "red";
-          ctx.lineWidth = 3 / zoom;
-          ctx.stroke();
-          
-          s = s * 1.3;
+          s = s * (1.3 + zwyciestwa.length * 0.15);
           off = s / 2;
       }
       
@@ -532,12 +581,24 @@ function rysujTrase() {
       ctx.font = "bold " + (14 / zoom) + "px Arial";
       ctx.textAlign = "center";
       
-      if (czyNajglosniejszy) {
-          ctx.fillStyle = "red";
-          ctx.font = "bold " + (20 / zoom) + "px Arial";
+      if (zwyciestwa.length > 0) {
+          ctx.fillStyle = "white"; // Zwycięzcy dostają specjalny kolor głośności dla czytelności
+          ctx.font = "bold " + (24 / zoom) + "px Arial";
+          
+          // Małe czarne tło pod tekst głośności dla kontrastu
+          ctx.shadowColor = "black";
+          ctx.shadowBlur = 4;
+          ctx.shadowOffsetX = 2;
+          ctx.shadowOffsetY = 2;
       }
       
       ctx.fillText(d.glosnosc, d.x * sk, d.y * sk - off - 4 / zoom);
+      
+      // Reset cienia
+      ctx.shadowColor = "transparent";
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
     });
     ctx.textAlign = "left";
   }

@@ -35,42 +35,31 @@ def uruchom_demo():
     drzewo = SegmentTree(dane)
     
     # Zapytanie o lokalne maksimum
-    L, R = 2, 6
-    wartosc, indeks = drzewo.query(L, R)
-    wycinek = dane[L:R+1]
-    print(f"\n{BOLD}1. Zapytanie o lokalne maksimum w przedziale [{L}, {R}]:{RESET}")
-    print(f"   Wycinek tablicy: {wycinek}")
-    print(f"   Znalezione maksimum: {GREEN}{wartosc}{RESET} (pod indeksem {indeks})")
-        
-    print(f"\n{BOLD}2. Aktualizacja wewnątrz przedziału:{RESET}")
-    index_wewnatrz = 4
-    nowa_wartosc_wewnatrz = 50
-    print(f"   Zmieniamy wartosc pod indeksem {index_wewnatrz} z {dane[index_wewnatrz]} na {YELLOW}{nowa_wartosc_wewnatrz}{RESET}...")
-    drzewo.update(index_wewnatrz, nowa_wartosc_wewnatrz)
-    dane[index_wewnatrz] = nowa_wartosc_wewnatrz
+    zapytania_lista = [
+        (2, 6),   # Max: 30
+        (8, 11),  # Max: 42
+        (0, 4),   # Max: 30 (To jest wazne! Tutaj maksimum to tez 30 na indeksie 3)
+        (0, 14)   # Max: 42 (Globalne, pokrywa sie z indeksem 8)
+    ]
     
-    wartosc, indeks = drzewo.query(L, R)
-    wycinek = dane[L:R+1]
-    print(f"   Ponawiamy zapytanie dla [{L}, {R}]. Wycinek: {wycinek}")
-    print(f"   Nowe maksimum przedziału: {GREEN}{wartosc}{RESET} (pod indeksem {indeks})")
-    print(f"   {CYAN}(Algorytm prawidłowo wyłapał nową największą wartość wewnątrz przedziału){RESET}")
-
-    print(f"\n{BOLD}3. Aktualizacja na zewnątrz przedziału:{RESET}")
-    index_zewnatrz = 10
-    nowa_wartosc_zewnatrz = 100
-    print(f"   Zmieniamy wartosc pod indeksem {index_zewnatrz} z {dane[index_zewnatrz]} na {YELLOW}{nowa_wartosc_zewnatrz}{RESET} (To teraz globalne maksimum!)...")
-    drzewo.update(index_zewnatrz, nowa_wartosc_zewnatrz)
-    dane[index_zewnatrz] = nowa_wartosc_zewnatrz
+    print(f"\n{BOLD}1. Przykładowe zapytania (RMQ) na różnych przedziałach:{RESET}")
     
-    wartosc, indeks = drzewo.query(L, R)
-    wycinek = dane[L:R+1]
-    print(f"   Ponawiamy zapytanie dla [{L}, {R}]. Wycinek: {wycinek}")
-    print(f"   Maksimum przedziału to nadal: {GREEN}{wartosc}{RESET} (pod indeksem {indeks})")
-    print(f"   {CYAN}(Algorytm jest odporny na ogromne wartości poza badanym przedziałem i szuka tylko lokalnie!){RESET}")
+    historia_zapytan = []
+    
+    for L, R in zapytania_lista:
+        wartosc, indeks = drzewo.query(L, R)
+        wycinek = dane[L:R+1]
+        print(f"   Maksimum w przedziale [{L:2}, {R:2}] (czyli {wycinek}): {GREEN}{wartosc}{RESET} (pod indeksem {indeks})")
+        historia_zapytan.append({
+            "L": L,
+            "R": R,
+            "wartosc": wartosc,
+            "indeks": indeks
+        })
         
-    zapisz_wizualizacje(dane, L, R, wartosc, indeks)
+    zapisz_wizualizacje(dane, historia_zapytan)
 
-def zapisz_wizualizacje(dane, ostatnie_L, ostatnie_R, ostatni_wartosc, ostatni_indeks):
+def zapisz_wizualizacje(dane, historia_zapytan):
     import json
     
     miasto = []
@@ -106,13 +95,24 @@ def zapisz_wizualizacje(dane, ostatnie_L, ostatnie_R, ostatni_wartosc, ostatni_i
             "krawedz": i if i < len(dane) - 1 else i - 1
         })
         
-    sciezka_ataku = []
-    if ostatnie_L <= ostatnie_R:
-        sciezka_ataku.append({"x": dekametrowcy[ostatnie_L]["x"], "y": dekametrowcy[ostatnie_L]["y"]})
-        for i in range(ostatnie_L + 1, ostatnie_R):
-             sciezka_ataku.append({"x": dekametrowcy[i]["x"], "y": dekametrowcy[i]["y"]})
-        if ostatnie_L != ostatnie_R:
-             sciezka_ataku.append({"x": dekametrowcy[ostatnie_R]["x"], "y": dekametrowcy[ostatnie_R]["y"]})
+    wszystkie_ataki = []
+    for zapytanie in historia_zapytan:
+        L = zapytanie["L"]
+        R = zapytanie["R"]
+        sciezka_ataku = []
+        if L <= R:
+            sciezka_ataku.append({"x": dekametrowcy[L]["x"], "y": dekametrowcy[L]["y"]})
+            for i in range(L + 1, R):
+                 sciezka_ataku.append({"x": dekametrowcy[i]["x"], "y": dekametrowcy[i]["y"]})
+            if L != R:
+                 sciezka_ataku.append({"x": dekametrowcy[R]["x"], "y": dekametrowcy[R]["y"]})
+                 
+        wszystkie_ataki.append({
+            "przedzial": [L, R],
+            "max_glosnosc": zapytanie["wartosc"],
+            "indeks": zapytanie["indeks"],
+            "sciezka_ataku": sciezka_ataku
+        })
 
     wyniki = {
         "parowanie": [],
@@ -120,12 +120,7 @@ def zapisz_wizualizacje(dane, ostatnie_L, ostatnie_R, ostatni_wartosc, ostatni_i
             "kolejnosc_kopalni_indeksy": trasa_ksiecia,
             "dlugosc": (len(dane) - 1) * odstep
         },
-        "najglosniejszy_krasnoludek": {
-            "przedzial": [ostatnie_L, ostatnie_R],
-            "max_glosnosc": ostatni_wartosc,
-            "indeks": ostatni_indeks,
-            "sciezka_ataku": sciezka_ataku
-        },
+        "najglosniejszy_krasnoludek": wszystkie_ataki,
         "dekametrowcy": dekametrowcy
     }
     

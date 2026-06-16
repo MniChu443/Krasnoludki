@@ -3,8 +3,8 @@ from modele import klasy_grafu as KlasyGrafu
 from narzedzia import czasomierz as Czasomierz
 
 Czas = Czasomierz.Czasomierz()
-Czas.pomin = True
-DEBUG_PRINT = False
+Czas.pomin = False  
+DEBUG_PRINT = True  
 
 class Polaczenie:
 
@@ -231,7 +231,7 @@ class SiecPrzeplywowa:
             sciezka = self.bfs_sciezka_powiekszajaca()
             Czas.stop()
             if sciezka is None: break
-            if DEBUG_PRINT: print(f"  Znaleziono ścieżkę pomniejszającą {sciezka}")
+            if DEBUG_PRINT: print(f"  Znaleziono ścieżkę powiększającą  {sciezka}")
             self.zmniejsz_sciezke(sciezka)
         if DEBUG_PRINT: print("  Znaleziono maksymalny przepływ")
 
